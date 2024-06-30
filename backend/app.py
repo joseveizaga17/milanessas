@@ -4,8 +4,7 @@ from bd.app import db, Milanga, Usuario
 
 app = Flask(__name__)
 CORS(app)
-
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2-binary://postgres:manu17@localhost/tp2'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:manu17@localhost:5432/milanesas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 @app.route('/', methods=["GET"])
@@ -26,9 +25,7 @@ def invents():
     return """<h1>invents milanga</h1>"""
 
 if __name__ == '__main__':
-    print('iniciando...')
     db.init_app(app)
     with app.app_context():
         db.create_all()
     app.run(host='0.0.0.0', debug=True, port=5000)
-    print('iniciado!!!')
