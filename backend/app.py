@@ -51,11 +51,11 @@ def create_sandwich():
         return jsonify({'milanesas':
                         {
                             'id': nuevo_sandwich.id,
-                            'pan': nuevo_sandwich.pan,
-                            'carne' : nuevo_sandwich.carne,
-                            'ensalada': nuevo_sandwich.ensalada,
-                            'milanesa': nuevo_sandwich.milanesa,
-                            'papas': nuevo_sandwich.papas
+                            'pan': nuevo_sandwich.tipo_pan,
+                            'carne' : nuevo_sandwich.tipo_carne,
+                            'ensalada': nuevo_sandwich.tipo_ensalada,
+                            'milanesa': nuevo_sandwich.tipo_milanesa,
+                            'papas': nuevo_sandwich.tipo_papas
                             }
                         })
     except:
