@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from bd.app import db, Milanga, Usuario
 
@@ -128,14 +128,14 @@ def create_sandwich():
         return jsonify({'alert' : 'no se pudo crear un nuevo sandwich'})
 
 
-@app.route('/invents', methods=['GET'])
+@app.route('/invent', methods=['GET'])
 def invents():
-    return """<h1>invents milanga</h1>"""
-
+    return render_template('index.html')
 
 if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', debug=True, port=5500)
+        # host era 0.0.0.0
+    app.run(host='127.0.0.1', debug=True, port=5500)
 # cambié el puerto para hacer pruebas en la compu antes era el 5000
