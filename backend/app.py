@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from bd.app import db, Milanga, Usuario
+from bd.app import db, Milanga, Usuario, Sandwich
 
 
 app = Flask(__name__)
@@ -141,12 +141,40 @@ def create_sandwich():
         return jsonify({'alert' : 'no se pudo crear un nuevo sandwich'})
 
 
+@app.route('/invent', methods=['GET', 'POST'])
+def invent():
+    if request.method == 'GET':
+        return render_template('invent.html')
+    if request.method == 'POST':
+        try:
+            data = request.json
+            pan = data.get('tipo_pan')
+            milanesa = data.get('tipo_milanesa')
+            ensalada = data.get('tipo_ensalada')
+            coccion = data.get('tipo_coccion')
+            papas = data.get('tipo_papas')
+
+            nuevo_sandwich = Sandwich(tipo_pan=pan, tipo_milanesa=milanesa, tipo_coccion=coccion, tipo_ensalada=ensalada, tipo_papas=papas)
+
+            db.session.add(nuevo_sandwich)
+            db.session.commit()
+            return jsonify({'sandwichs':
+                            {
+                                'id': nuevo_sandwich.id,
+                                'pan': nuevo_sandwich.tipo_pan,
+                                'milanesa': nuevo_sandwich.tipo_milanesa,
+                                'coccion' : nuevo_sandwich.tipo_coccion,
+                                'ensalada': nuevo_sandwich.tipo_ensalada,
+                                'papas': nuevo_sandwich.tipo_papas
+                                }
+                            })
+        except:
+            return jsonify({'alert' : 'No te pudiste armar el Sandwich'})
+        
 @app.route('/user', methods=['POST'])
 def create_user():
     try:
         data = request.json
-        #if data == None:
-        #    return jsonify({'info': 'el request fallo'})
 
         nombre = data.get('nombre')
         apellido = data.get('apellido')
@@ -161,16 +189,10 @@ def create_user():
         return jsonify({'succes': True})
     except:
         return jsonify({'succes': 'fallo todddd'})
-
-
-@app.route('/invents', methods=['GET'])
-def invents():
-    return """<h1>invents milanga</h1>"""
-
+    
 
 if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', debug=True, port=5500)
-# cambié el puerto para hacer pruebas en la compu antes era el 5000
+    app.run(host='127.0.0.1', debug=True, port=5000)
