@@ -1,10 +1,16 @@
 function siguiente_pan(){
     let formulario = document.getElementById("form-sandwich");
 
+    let contenedor = document.getElementById("contenedor");
 
     //Creando un div con un id
     let carne = document.createElement("div");
     carne.setAttribute("id", "tipo-de-carne");
+    carne.classList.add("row");
+
+    let container = document.createElement("div");
+    carne.setAttribute("id", "container");
+    carne.classList.add("card col-6 mx-auto");
 
     //Creando un label
     let texto = document.createElement("label");
