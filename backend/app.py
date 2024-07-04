@@ -24,12 +24,12 @@ def get_sandwich(id):
         sandwich = {
             'id': id,
             'pan': data.pan,
-            'carne': data.carne,
-            'ensalada': data.ensalada,
             'milanesa': data.milanesa,
-            'papas': data.papas
-            #'fecha_creacion': data.fecha_creacion,
-            #'usuario_id': data.usuario_id
+            'ensalada': data.ensalada,
+            'coccion': data.coccion,
+            'papas': data.papas,
+            'fecha_creacion': data.fecha_creacion,
+            'usuario_id': data.usuario_id
         }
         dicc.append(sandwich)
         return dicc
@@ -45,12 +45,12 @@ def get_all_sandwich():
             sandwich_data = {
                 "id": sandwich.id,
                 "tipo_pan": sandwich.pan,
-                "tipo_carne": sandwich.carne,
-                "tipo_ensalada": sandwich.ensalada,
                 "tipo_milanesa": sandwich.milanesa,
-                "tipo_papas": sandwich.papas
-                #'fecha_creacion': data.fecha_creacion,
-                #'usuario_id': data.usuario_id
+                "tipo_ensalada": sandwich.ensalada,
+                "tipo_coccion": sandwich.coccion,
+                "tipo_papas": sandwich.papas,
+                'fecha_creacion': data.fecha_creacion,
+                'usuario_id': data.usuario_id
                 }
             sandwichs_data.append(sandwich_data)
         return sandwichs_data
@@ -79,96 +79,88 @@ def edit_sandwich(id):
         return jsonify({'ALERT': 'no existe un sandwich con ese id'})
     else :
         pan = data.get("pan")
-        carne = data.get("carne")
-        ensalada = data.get("ensalada")
         milanesa = data.get("milanesa")
+        ensalada = data.get("ensalada")
+        coccion = data.get("coccion")
         papas = data.get("papas")
         usuario = data.get("usuario_id")
 
         content = Milanga.query.get(id)
         content.pan = pan
-        content.carne = carne
-        content.ensalada = ensalada
         content.milanesa = milanesa
+        content.ensalada = ensalada
+        content.coccion = coccion
         content.papas = papas
-        #content.usuario_id = usuario
+        content.usuario_id = usuario
 
         db.session.commit()
 
         dicc = jsonify({'id': content.id,
                         'pan': content.pan,
-                        'carne': content.carne,
-                        'ensalada': content.ensalada,
                         'milanesa': content.milanesa,
-                        'papas': content.papas
-                        #'fecha_creacion': content.fecha_creacion,
-                        #'usuario_id': content.usuario_id
+                        'ensalada': content.ensalada,
+                        'coccion': content.coccion,
+                        'papas': content.papas,
+                        'fecha_creacion': content.fecha_creacion,
+                        'usuario_id': content.usuario_id
                         })
         #no se si devolver directamente el cambio, o el front se encarga de buscar el sandwich actualizado
         return dicc
-
-        #return jsonify({'sandwich updated': {
-        #                                        'id': content.id,
-        #                                        'pan': content.tipo_pan,
-        #                                        'carne': content.tipo_carne,
-        #                                        'ensalada': content.tipo_ensalada,
-        #                                        'milanesa': content.tipo_milanesa,
-        #                                        'papas': content.tipo_papas
-        #                                    }
-        #                })
-
 
 @app.route('/create', methods=['POST'])
 def create_sandwich():
     try:
         data = request.json
         pan = data.get('pan')
-        carne = data.get('carne')
-        ensalada = data.get('ensalada')
         milanesa = data.get('milanesa')
+        ensalada = data.get('ensalada')
+        coccion = data.get('coccion')
         papas = data.get('papas')
         usuario_id = data.get('usuario_id')
 
         #capaz aca te olvidas, reestablecemos el valos de los registros del modelo, primero va 
         # el nombre de la columna del modelo, luego el valor de la variable
-        nuevo_sandwich = Milanga(pan=pan, carne=carne, ensalada=ensalada, milanesa=milanesa, papas=papas, usuario_id=usuario_id)
+        nuevo_sandwich = Milanga(pan=pan, milanesa=milanesa, ensalada=ensalada, coccion=coccion, papas=papas, usuario_id=usuario_id)
 
         db.session.add(nuevo_sandwich)
         db.session.commit()
         #se devuelve un True
-        return jsonify({'milanesas':
+        return jsonify({'sandwich':
                         {
                             'id': nuevo_sandwich.id,
                             'pan': nuevo_sandwich.pan,
-                            'carne' : nuevo_sandwich.carne,
+                            'milanesa' : nuevo_sandwich.milanesa,
                             'ensalada': nuevo_sandwich.ensalada,
-                            'milanesa': nuevo_sandwich.milanesa,
-                            'papas': nuevo_sandwich.papas
-                            #'fecha_creacion': nuevo_sandwich.fecha_creacion
-                            #'usuario_id': nuevo_sandwich.usuario_id
+                            'coccion': nuevo_sandwich.coccion,
+                            'papas': nuevo_sandwich.papas,
+                            'fecha_creacion': nuevo_sandwich.fecha_creacion,
+                            'usuario_id': nuevo_sandwich.usuario_id
                             }
                         })
     except:
         return jsonify({'alert' : 'no se pudo crear un nuevo sandwich'})
 
 
-@app.route('/user', methods=["GET"])
+@app.route('/user', methods=['POST'])
 def create_user():
     try:
         data = request.json
+        #if data == None:
+        #    return jsonify({'info': 'el request fallo'})
 
         nombre = data.get('nombre')
+        apellido = data.get('apellido')
         edad = data.get('edad')
         imagen = data.get('imagen')
         email = data.get('email')
 
-        new_user = Usuario(nombre=nombre, edad=edad, imagen=imagen, email=email)
+        new_user = Usuario(nombre=nombre, apellido=apellido, edad=edad, imagen=imagen, email=email)
 
         db.session.add(new_user)
         db.session.commit()
         return jsonify({'succes': True})
     except:
-        return jsonify({'succes': False})
+        return jsonify({'succes': 'fallo todddd'})
 
 
 @app.route('/invents', methods=['GET'])
