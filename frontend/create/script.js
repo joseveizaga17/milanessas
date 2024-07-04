@@ -1,36 +1,47 @@
 function siguiente_pan(){
     let formulario = document.getElementById("form-sandwich");
 
+
+    //Creando un div con un id
     let carne = document.createElement("div");
     carne.setAttribute("id", "tipo-de-carne");
 
+    //Creando un label
     let texto = document.createElement("label");
     texto.setAttribute("for", "carne");
     texto.innerText = 'Que tipo de carne :'
 
+    //Creando una imagen
     let image = document.createElement("img");
-    image.setAttribute("src", "https://dthezntil550i.cloudfront.net/po/latest/po1807080447316790001907598/1280_960/c13f97a7-8dd1-4ab4-89b3-33f1b34b466a.png");
+    image.setAttribute("src", "https://arjosimarprod.vteximg.com.br/arquivos/ids/155753-1000-1000/milanesa-pollo-frita-kg-1-7113.jpg?v=637378633665430000");
 
+    //Haciendo un input tipo texto con id
     let tipo = document.createElement("input");
     tipo.setAttribute("type", "text");
     tipo.setAttribute("id", "carne");
     tipo.setAttribute("placeholder", "tipo de carne");
 
+    //creando un boton diciendo "siguiente"
     let boton = document.createElement("button");
     boton.setAttribute("type", "button");
     boton.innerText = "Siguiente";
     boton.onclick = function(){siguiente_carne()};
 
+    //aqui es como escondo el div de pan
     let clase = document.getElementById("tipo-de-pan")
     clase.classList.add("ocultar");
 
+    //aqui añado todo al div
     carne.append(texto);
     carne.append(image);
     carne.append(tipo);
     carne.append(boton);
+
+    //y aqui añado todo el div con todo los elementos creados al formulario
     formulario.append(carne);
     
 }
+
 function siguiente_carne(){
     let formulario = document.getElementById("form-sandwich");
 
@@ -42,7 +53,7 @@ function siguiente_carne(){
     texto.innerText = 'Que tipo de ensalada :'
 
     let image = document.createElement("img");
-    image.setAttribute("src", "https://dthezntil550i.cloudfront.net/po/latest/po1807080447316790001907598/1280_960/c13f97a7-8dd1-4ab4-89b3-33f1b34b466a.png");
+    image.setAttribute("src", "https://cdn0.recetasgratis.net/es/posts/1/7/7/ensalada_de_apio_tomate_y_aguacate_60771_orig.jpg");
 
     let tipo = document.createElement("input");
     tipo.setAttribute("type", "text");
@@ -75,7 +86,7 @@ function siguiente_ensalada(){
     texto.innerText = 'Que tipo de papas :'
 
     let image = document.createElement("img");
-    image.setAttribute("src", "https://dthezntil550i.cloudfront.net/po/latest/po1807080447316790001907598/1280_960/c13f97a7-8dd1-4ab4-89b3-33f1b34b466a.png");
+    image.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnT_dO-xu7x1jlb5l3dvR641tcnieqlgF3w&s");
 
     let tipo = document.createElement("input");
     tipo.setAttribute("type", "text");
@@ -95,3 +106,5 @@ function siguiente_ensalada(){
     formulario.append(papas);
     
 }
+
+//nota: falta reducir el codigo
