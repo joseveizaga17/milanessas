@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from bd.app import db, Milanga, Usuario
+from bd.app import db, Milanga, Usuario, Sandwich
 
 
 app = Flask(__name__)
@@ -128,9 +128,36 @@ def create_sandwich():
         return jsonify({'alert' : 'no se pudo crear un nuevo sandwich'})
 
 
-@app.route('/invent', methods=['GET'])
-def invents():
-    return render_template('index.html')
+@app.route('/invent', methods=['GET', 'POST'])
+def invent():
+    if request.method == 'GET':
+        return render_template('invent.html')
+    if request.method == 'POST':
+        try:
+            data = request.json
+            pan = data.get('tipo_pan')
+            milanesa = data.get('tipo_milanesa')
+            ensalada = data.get('tipo_ensalada')
+            coccion = data.get('tipo_coccion')
+            papas = data.get('tipo_papas')
+
+            nuevo_sandwich = Sandwich(tipo_pan=pan, tipo_milanesa=milanesa, tipo_coccion=coccion, tipo_ensalada=ensalada, tipo_papas=papas)
+
+            db.session.add(nuevo_sandwich)
+            db.session.commit()
+            return jsonify({'sandwichs':
+                            {
+                                'id': nuevo_sandwich.id,
+                                'pan': nuevo_sandwich.tipo_pan,
+                                'milanesa': nuevo_sandwich.tipo_milanesa,
+                                'coccion' : nuevo_sandwich.tipo_coccion,
+                                'ensalada': nuevo_sandwich.tipo_ensalada,
+                                'papas': nuevo_sandwich.tipo_papas
+                                }
+                            })
+        except:
+            return jsonify({'alert' : 'No te pudiste armar el Sandwich'})
+    
 
 if __name__ == '__main__':
     db.init_app(app)
