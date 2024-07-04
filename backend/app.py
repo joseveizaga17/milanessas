@@ -164,5 +164,5 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         # host era 0.0.0.0
-    app.run(host='127.0.0.1', debug=True, port=5500)
+    app.run(host='127.0.0.1', debug=True, port=5000)
 # cambié el puerto para hacer pruebas en la compu antes era el 5000
