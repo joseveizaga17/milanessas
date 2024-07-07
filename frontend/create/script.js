@@ -1,128 +1,158 @@
+
 function siguiente_pan(){
     let formulario = document.getElementById("form-sandwich");
 
-
     //Creando un div con un id
-    let carne = document.createElement("div");
-    carne.setAttribute("id", "tipo-de-carne");
-    carne.setAttribute("class","card col-6 mx-auto");
-
-    //Creando un label
-    let texto = document.createElement("label");
-    texto.setAttribute("for", "carne");
-    texto.classList.add("my-2");
-    texto.innerText = 'Eliga su carne :';
-
-    //Creando una imagen
-    let image = document.createElement("img");
-    image.setAttribute("src", "https://arjosimarprod.vteximg.com.br/arquivos/ids/155753-1000-1000/milanesa-pollo-frita-kg-1-7113.jpg?v=637378633665430000");
-    image.setAttribute("alt", "carne");
-    image.setAttribute("class","img-thumbnail rounded mb-3");
-
-    //Haciendo un input tipo texto con id
-    let tipo = document.createElement("input");
-    tipo.setAttribute("type", "text");
-    tipo.setAttribute("id", "carne");
-    tipo.setAttribute("placeholder", "Que tipo de carne desea");
-    tipo.setAttribute("class","form-control mb-3 w-75 mx-auto");
+    let milanesa = document.createElement("div");
+    milanesa.setAttribute("id", "tipo-de-milanesa");
+    milanesa.setAttribute("class","d-flex justify-content-evenly");
 
     //creando un boton diciendo "siguiente"
-    let boton = document.createElement("button");
-    boton.setAttribute("type", "button");
-    boton.setAttribute("class","mb-2 btn btn-primary mx-auto");
-    boton.innerText = "Siguiente";
-    boton.onclick = function(){siguiente_carne()};
+    let boton1 = document.createElement("button");
+    boton1.setAttribute("type", "button");
+    boton1.setAttribute("class","btn btn-outline-dark");
+    boton1.innerText = "Milanesa de Carne";
+    boton1.onclick = function(){siguiente_milanesa()};
+
+    let boton2 = document.createElement("button");
+    boton2.setAttribute("type", "button");
+    boton2.setAttribute("class","btn btn-outline-dark");
+    boton2.innerText = "Milanesa de Pollo";
+    boton2.onclick = function(){siguiente_milanesa()};
+
+    let boton3 = document.createElement("button");
+    boton3.setAttribute("type", "button");
+    boton3.setAttribute("class","btn btn-outline-dark");
+    boton3.innerText = "Milanesa de Soja";
+    boton3.onclick = function(){siguiente_milanesa()};
+
+
 
     //aqui es como escondo el div de pan
     let clase = document.getElementById("tipo-de-pan")
     clase.classList.add("d-none");
 
     //aqui añado todo al div
-    carne.append(texto);
-    carne.append(image);
-    carne.append(tipo);
-    carne.append(boton);
+    milanesa.append(boton1);
+    milanesa.append(boton2);
+    milanesa.append(boton3);
 
     //y aqui añado todo el div con todo los elementos creados al formulario
-    formulario.append(carne);
+    formulario.append(milanesa);
     
 }
 
-function siguiente_carne(){
+function siguiente_milanesa(){
+    let formulario = document.getElementById("form-sandwich");
+
+    let coccion = document.createElement("div");
+    coccion.setAttribute("id", "tipo-de-coccion");
+    coccion.setAttribute("class","d-flex justify-content-evenly");
+
+        //creando un boton diciendo "siguiente"
+    let boton1 = document.createElement("button");
+    boton1.setAttribute("type", "button");
+    boton1.setAttribute("class","btn btn-outline-dark");
+    boton1.innerText = "Frita";
+    boton1.onclick = function(){siguiente_coccion()};
+
+    let boton2 = document.createElement("button");
+    boton2.setAttribute("type", "button");
+    boton2.setAttribute("class","btn btn-outline-dark");
+    boton2.innerText = "Horno";
+    boton2.onclick = function(){siguiente_coccion()};
+
+    let boton3 = document.createElement("button");
+    boton3.setAttribute("type", "button");
+    boton3.setAttribute("class","btn btn-outline-dark");
+    boton3.innerText = "Plancha";
+    boton3.onclick = function(){siguiente_coccion()};
+
+
+
+    //aqui es como escondo el div de pan
+    let clase = document.getElementById("tipo-de-milanesa")
+    clase.classList.add("d-none");
+
+    //aqui añado todo al div
+    coccion.append(boton1);
+    coccion.append(boton2);
+    coccion.append(boton3);
+
+    //y aqui añado todo el div con todo los elementos creados al formulario
+    formulario.append(coccion);
+}
+function siguiente_coccion(){
     let formulario = document.getElementById("form-sandwich");
 
     let ensalada = document.createElement("div");
     ensalada.setAttribute("id", "tipo-de-ensalada");
-    ensalada.setAttribute("class","card col-6 mx-auto");
+    ensalada.setAttribute("class","d-flex justify-content-evenly");
 
-    let texto = document.createElement("label");
-    texto.setAttribute("for", "ensalada");
-    texto.classList.add("my-2");
-    texto.innerText = 'Eliga su ensalada :'
+    let boton1 = document.createElement("button");
+    boton1.setAttribute("type", "button");
+    boton1.setAttribute("class","btn btn-outline-dark");
+    boton1.innerText = "Lechuga";
+    boton1.onclick = function(){siguiente_papas()};
 
-    let image = document.createElement("img");
-    image.setAttribute("src", "https://cdn0.recetasgratis.net/es/posts/1/7/7/ensalada_de_apio_tomate_y_aguacate_60771_orig.jpg");
-    image.setAttribute("alt", "ensalada");
-    image.setAttribute("class","img-thumbnail rounded mb-3");
+    let boton2 = document.createElement("button");
+    boton2.setAttribute("type", "button");
+    boton2.setAttribute("class","btn btn-outline-dark");
+    boton2.innerText = "Tomate";
+    boton2.onclick = function(){siguiente_papas()};
 
-    let tipo = document.createElement("input");
-    tipo.setAttribute("type", "text");
-    tipo.setAttribute("id", "ensalada");
-    tipo.setAttribute("placeholder", "Que tipo de ensalada desea");
-    tipo.setAttribute("class","form-control mb-3 w-75 mx-auto");
+    let boton3 = document.createElement("button");
+    boton3.setAttribute("type", "button");
+    boton3.setAttribute("class","btn btn-outline-dark");
+    boton3.innerText = "Huevo";
+    boton3.onclick = function(){siguiente_papas()};
 
-    let boton = document.createElement("button");
-    boton.setAttribute("type", "button");
-    boton.setAttribute("class","mb-2 btn btn-primary mx-auto");
-    boton.innerText = "Siguiente";
-    boton.onclick = function(){siguiente_ensalada()};
 
-    let clase = document.getElementById("tipo-de-carne")
+
+    //aqui es como escondo el div de pan
+    let clase = document.getElementById("tipo-de-coccion")
     clase.classList.add("d-none");
 
-    ensalada.append(texto);
-    ensalada.append(image);
-    ensalada.append(tipo);
-    ensalada.append(boton);
+    ensalada.append(boton1);
+    ensalada.append(boton2);
+    ensalada.append(boton3);
+
     formulario.append(ensalada);
     
 }
-function siguiente_ensalada(){
+
+function siguiente_papas(){
     let formulario = document.getElementById("form-sandwich");
 
     let papas = document.createElement("div");
     papas.setAttribute("id", "tipo-de-papas");
-    papas.setAttribute("class","card col-6 mx-auto");
+    papas.setAttribute("class","d-flex justify-content-evenly");
 
-    let texto = document.createElement("label");
-    texto.setAttribute("for", "papas");
-    texto.classList.add("my-2");
-    texto.innerText = 'Eliga sus papas :'
+    let boton1 = document.createElement("button");
+    boton1.setAttribute("type", "submit");
+    boton1.setAttribute("class","btn btn-outline-dark");
+    boton1.innerText = "Papas Fritas";
 
-    let image = document.createElement("img");
-    image.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDnT_dO-xu7x1jlb5l3dvR641tcnieqlgF3w&s");
-    image.setAttribute("alt", "carne");
-    image.setAttribute("class","img-thumbnail rounded mb-3");
+    let boton2 = document.createElement("button");
+    boton2.setAttribute("type", "submit");
+    boton2.setAttribute("class","btn btn-outline-dark");
+    boton2.innerText = "Papas al horno";
 
-    let tipo = document.createElement("input");
-    tipo.setAttribute("type", "text");
-    tipo.setAttribute("id", "papas");
-    tipo.setAttribute("placeholder", "Que tipo de papas desea");
-    tipo.setAttribute("class","form-control mb-3 w-75 mx-auto");
 
-    let boton = document.createElement("button");
-    boton.setAttribute("class","mb-2 btn btn-success mx-auto");
-    boton.innerText = "Enviar";
+    let boton3 = document.createElement("button");
+    boton3.setAttribute("type", "submit");
+    boton3.setAttribute("class","btn btn-outline-dark");
+    boton3.innerText = "Pure";
 
     let clase = document.getElementById("tipo-de-ensalada")
     clase.classList.add("d-none");
 
-    papas.append(texto);
-    papas.append(image);
-    papas.append(tipo);
-    papas.append(boton);
+    papas.append(boton1);
+    papas.append(boton2);
+    papas.append(boton3);
+
     formulario.append(papas);
-    
 }
+
 
 //nota: falta reducir el codigo
