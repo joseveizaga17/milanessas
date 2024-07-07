@@ -129,18 +129,18 @@ function siguiente_papas(){
     papas.setAttribute("class","d-flex justify-content-evenly");
 
     let boton1 = document.createElement("button");
-    boton1.setAttribute("type", "button");
+    boton1.setAttribute("type", "submit");
     boton1.setAttribute("class","btn btn-outline-dark");
     boton1.innerText = "Papas Fritas";
 
     let boton2 = document.createElement("button");
-    boton2.setAttribute("type", "button");
+    boton2.setAttribute("type", "submit");
     boton2.setAttribute("class","btn btn-outline-dark");
     boton2.innerText = "Papas al horno";
 
 
     let boton3 = document.createElement("button");
-    boton3.setAttribute("type", "button");
+    boton3.setAttribute("type", "submit");
     boton3.setAttribute("class","btn btn-outline-dark");
     boton3.innerText = "Pure";
 
