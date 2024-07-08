@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 from bd.app import db, Milanga, Usuario
 
@@ -143,13 +143,13 @@ def get_all_user():
         users_data = []
         for user in data:
             user_data = {
-                'id': user.get('id'),
-                'nombre': user.get('nombre'),
-                'apellido': user.get('apellido'),
-                'edad': user.get('edad'),
-                'imagen': user.get('imagen'),
-                'email': user.get('email'),
-                'fecha_creacion': user.get('fecha_creacion'),
+                'id': user.id,
+                'nombre': user.nombre,
+                'apellido': user.apellido,
+                'edad': user.edad,
+                'imagen': user.imagen,
+                'email': user.email,
+                'fecha_creacion': user.fecha_creacion
             }
             users_data.append(user_data)
         return users_data
@@ -191,10 +191,6 @@ def user_delete(id):
         db.session.commit()
 
         return jsonify({'resultado': True})
-
-    
-
-
 
 
 if __name__ == '__main__':
