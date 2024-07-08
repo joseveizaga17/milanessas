@@ -11,17 +11,20 @@ function siguiente_pan(){
     let boton1 = document.createElement("button");
     boton1.setAttribute("type", "button");
     boton1.setAttribute("class","btn btn-outline-dark");
+    boton1.setAttribute("name", "milanesa");
     boton1.innerText = "Milanesa de Carne";
     boton1.onclick = function(){siguiente_milanesa()};
 
     let boton2 = document.createElement("button");
     boton2.setAttribute("type", "button");
     boton2.setAttribute("class","btn btn-outline-dark");
+    boton2.setAttribute("name", "milanesa");
     boton2.innerText = "Milanesa de Pollo";
     boton2.onclick = function(){siguiente_milanesa()};
 
     let boton3 = document.createElement("button");
     boton3.setAttribute("type", "button");
+    boton3.setAttribute("name", "milanesa");
     boton3.setAttribute("class","btn btn-outline-dark");
     boton3.innerText = "Milanesa de Soja";
     boton3.onclick = function(){siguiente_milanesa()};
@@ -52,18 +55,21 @@ function siguiente_milanesa(){
         //creando un boton diciendo "siguiente"
     let boton1 = document.createElement("button");
     boton1.setAttribute("type", "button");
+    boton1.setAttribute("name", "coccion");
     boton1.setAttribute("class","btn btn-outline-dark");
     boton1.innerText = "Frita";
     boton1.onclick = function(){siguiente_coccion()};
 
     let boton2 = document.createElement("button");
     boton2.setAttribute("type", "button");
+    boton2.setAttribute("name", "coccion");
     boton2.setAttribute("class","btn btn-outline-dark");
     boton2.innerText = "Horno";
     boton2.onclick = function(){siguiente_coccion()};
 
     let boton3 = document.createElement("button");
     boton3.setAttribute("type", "button");
+    boton3.setAttribute("name", "coccion");
     boton3.setAttribute("class","btn btn-outline-dark");
     boton3.innerText = "Plancha";
     boton3.onclick = function(){siguiente_coccion()};
@@ -91,18 +97,21 @@ function siguiente_coccion(){
 
     let boton1 = document.createElement("button");
     boton1.setAttribute("type", "button");
+    boton1.setAttribute("name", "ensalada");
     boton1.setAttribute("class","btn btn-outline-dark");
     boton1.innerText = "Lechuga";
     boton1.onclick = function(){siguiente_papas()};
 
     let boton2 = document.createElement("button");
     boton2.setAttribute("type", "button");
+    boton2.setAttribute("name", "ensalada");
     boton2.setAttribute("class","btn btn-outline-dark");
     boton2.innerText = "Tomate";
     boton2.onclick = function(){siguiente_papas()};
 
     let boton3 = document.createElement("button");
     boton3.setAttribute("type", "button");
+    boton3.setAttribute("name", "ensalada");
     boton3.setAttribute("class","btn btn-outline-dark");
     boton3.innerText = "Huevo";
     boton3.onclick = function(){siguiente_papas()};
@@ -129,18 +138,21 @@ function siguiente_papas(){
     papas.setAttribute("class","d-flex justify-content-evenly my-5");
 
     let boton1 = document.createElement("button");
-    boton1.setAttribute("type", "submit");
+    boton1.setAttribute("type", "button");
+    boton1.setAttribute("name", "papas");
     boton1.setAttribute("class","btn btn-outline-dark");
     boton1.innerText = "Papas Fritas";
 
     let boton2 = document.createElement("button");
-    boton2.setAttribute("type", "submit");
+    boton2.setAttribute("type", "button");
+    boton2.setAttribute("name", "papas");
     boton2.setAttribute("class","btn btn-outline-dark");
     boton2.innerText = "Papas al horno";
 
 
     let boton3 = document.createElement("button");
-    boton3.setAttribute("type", "submit");
+    boton3.setAttribute("type", "button");
+    boton3.setAttribute("name", "papas");
     boton3.setAttribute("class","btn btn-outline-dark");
     boton3.innerText = "Pure";
 
