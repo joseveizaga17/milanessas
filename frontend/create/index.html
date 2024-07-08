@@ -72,12 +72,13 @@
     
     
     <div class="container my-3">
-        <h2>Elija como va a ser su sandwich</h2>
-        <form id="form-sandwich" class="border border-light-subtle rounded">    
+        
+        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich(event)" method="post">   
+            <h2 class="ps-3 pt-2" id="form-title">Elija como va a ser su sandwich</h2> 
             <div id="tipo-de-pan" class="d-flex justify-content-evenly my-5">
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Blanco</button>
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Integral</button>
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Arabe</button>
+                <button type="button" id="pan" onclick="siguiente_pan(1)" class="btn btn-outline-dark" name="pan">Pan Blanco</button>
+                <button type="button" id="pan" onclick="siguiente_pan(2)" class="btn btn-outline-dark" name="pan">Pan Integral</button>
+                <button type="button" id="pan" onclick="siguiente_pan(3)" class="btn btn-outline-dark" name="pan">Pan Arabe</button>
             </div>
         </form>
     </div>
@@ -85,35 +86,7 @@
 
     <!-- end-form -->
 
-    <div class="container my-5">
-        <h3 class="pb-2">Lista de sandwiches de milanesas creadas</h3>
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Normal</h5>
-                <small>Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small>And some small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Vegano</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich de Pollo</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-          </div>
-    </div>
+    
 
     <!-- footer -->
     <div class="footer-container">
@@ -148,6 +121,47 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <!--
+    <script>
+
+        function parse_creacion(content){
+            event.preventDefault();
+
+            const data_form = new FormData(event.target);
+
+            const pan = data_form.get("pan");
+            const milanesa = data_form.get("milanesa");
+            const ensalada = data_form.get("ensalada");
+            const coccion = data_form.get("coccion");
+            const papas = data_form.get("papas");
+
+
+            console.log(JSON.stringify({
+                id: id,
+                pan: nuevo_sandwich.pan,
+                milanesa : nuevo_sandwich.milanesa,
+                ensalada: nuevo_sandwich.ensalada,
+                coccion: nuevo_sandwich.coccion,
+                papas: nuevo_sandwich.papas,
+                fecha_creacion: nuevo_sandwich.fecha_creacion
+            }
+                
+            ))
+        }
+
+
+        function crear_sandwich(event){
+
+            fetch("http://localhost:5500/create", {method: "POST"})
+                .then(res => res.json())
+                .then(parse_creacion)
+                .catch( (error) => console.log(error))
+        }
+
+
+    </script>-->
+
 </body>
 
 </html>
