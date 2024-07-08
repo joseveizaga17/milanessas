@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from bd.app import db, Milanga, Usuario, Sandwich
+from bd.app import db, Milanga, Usuario
 
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:manu17@localhost:5432/milanesas'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:1234@localhost:5432/milanesas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 
