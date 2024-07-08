@@ -132,7 +132,7 @@ def create_user():
 
         db.session.add(new_user)
         db.session.commit()
-        return jsonify({'success': True})
+        return jsonify({'id': new_user.id})
     except:
         return jsonify({'success': False})
     
