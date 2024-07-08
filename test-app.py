@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file # type: ignore
+from flask import Flask, jsonify, request, send_file, render_template # type: ignore
 from psycopg2 import connect, extras  # type: ignore 
 
 app = Flask(__name__)
@@ -191,7 +191,7 @@ def get_sandwich(id):
 
 @app.get('/')
 def home():
-    return send_file('../frontend/index.html')
+    return send_file('frontend/index.html')
 
 if __name__ == '__main__':
     create_tables()
