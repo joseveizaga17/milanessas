@@ -25,39 +25,3 @@ class Usuario(db.Model):
     email = db.Column(db.String(500), unique=True, nullable=False)
     fecha_creacion = db.Column(db.DateTime, default=datetime.datetime.now())
     milangas = db.relationship("Milanga")
-
-
-class Panes(Enum):
-    PAN_1 = 'Pan Blanco'
-    PAN_2 = 'Pan Integral'
-    PAN_3 = 'Pan Arabe'
-
-class Milanesas(Enum):
-    MILANESA_1 = 'Milanesa de Carne'
-    MILANESA_2 = 'Milanesa de Pollo'
-    MILANESA_3 = 'Milanesa de Soja'
-
-class Cocciones(Enum):
-    COCCION_1 = 'Frita'
-    COCCION_2 = 'Horno'
-    COCCION_3 = 'Plancha'
-
-class Ensaladas(Enum):
-    ENSALADA_1 = 'Lechuga'
-    ENSALADA_2 = 'Tomate'
-    ENSALADA_3 = 'Huevo'
-
-class Papas(Enum):
-    PAPAS_1 = 'Papas Fritas'
-    PAPAS_2 = 'Papas al Horno'
-    PAPAS_3 = 'Puré'
-
-
-class Sandwich(db.Model):
-    __tablename__ = 'sandwich'
-    id = db.Column(db.Integer, primary_key=True)
-    pan = db.Column(db.Enum(Panes), nullable=False)
-    milanesa = db.Column(db.Enum(Milanesas), nullable=False)
-    coccion = db.Column(db.Enum(Cocciones), nullable=False)
-    ensalada = db.Column(db.Enum(Ensaladas))
-    papas = db.Column(db.Enum(Papas))
