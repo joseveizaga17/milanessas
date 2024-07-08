@@ -151,9 +151,10 @@ def get_all_user():
                 'email': user.get('email'),
                 'fecha_creacion': user.get('fecha_creacion'),
             }
-        return 
+            users_data.append(user_data)
+        return users_data
     except:
-        return
+        return jsonify({'success': False})
     
 @app.route('/user/edit/<id>', methods=['PUT'])
 def user_edit(id):
