@@ -5,7 +5,7 @@ function siguiente_pan(){
     //Creando un div con un id
     let milanesa = document.createElement("div");
     milanesa.setAttribute("id", "tipo-de-milanesa");
-    milanesa.setAttribute("class","d-flex justify-content-evenly");
+    milanesa.setAttribute("class","d-flex justify-content-evenly my-5");
 
     //creando un boton diciendo "siguiente"
     let boton1 = document.createElement("button");
@@ -47,7 +47,7 @@ function siguiente_milanesa(){
 
     let coccion = document.createElement("div");
     coccion.setAttribute("id", "tipo-de-coccion");
-    coccion.setAttribute("class","d-flex justify-content-evenly");
+    coccion.setAttribute("class","d-flex justify-content-evenly my-5");
 
         //creando un boton diciendo "siguiente"
     let boton1 = document.createElement("button");
@@ -87,7 +87,7 @@ function siguiente_coccion(){
 
     let ensalada = document.createElement("div");
     ensalada.setAttribute("id", "tipo-de-ensalada");
-    ensalada.setAttribute("class","d-flex justify-content-evenly");
+    ensalada.setAttribute("class","d-flex justify-content-evenly my-5");
 
     let boton1 = document.createElement("button");
     boton1.setAttribute("type", "button");
@@ -126,7 +126,7 @@ function siguiente_papas(){
 
     let papas = document.createElement("div");
     papas.setAttribute("id", "tipo-de-papas");
-    papas.setAttribute("class","d-flex justify-content-evenly");
+    papas.setAttribute("class","d-flex justify-content-evenly my-5");
 
     let boton1 = document.createElement("button");
     boton1.setAttribute("type", "submit");
