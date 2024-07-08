@@ -122,7 +122,7 @@
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
-    <!--
+
     <script>
 
         function parse_creacion(content){
@@ -153,14 +153,25 @@
 
         function crear_sandwich(event){
 
-            fetch("http://localhost:5500/create", {method: "POST"})
+            fetch("http://localhost:5500/create", {method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    pan: pan,
+                    milanesa: milanesa,
+                    ensalada: ensalada,
+                    coccion: coccion,
+                    papas: papas})
+                })
                 .then(res => res.json())
                 .then(parse_creacion)
                 .catch( (error) => console.log(error))
-        }
+            }
+                
 
 
-    </script>-->
+    </script>
 
 </body>
 

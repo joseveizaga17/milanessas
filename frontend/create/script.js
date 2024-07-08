@@ -170,100 +170,54 @@ function siguiente_papas(){
 }
 
 function siguiente_formulario(){
+
     let formulario = document.getElementById("form-sandwich");
 
     let title = document.getElementById("form-title");
-    title.innerText = 'Cree una cuenta para finalizar el pedido';
-
+    title.innerText = "Escriba su usuario para confirmar su pedido";
+    
     let Nombre = document.createElement("div");
-    Nombre.setAttribute("class", "mb-3 px-5");
-    let nombre_label = document.createElement("label");
-    nombre_label.setAttribute("class", "form-label");
-    nombre_label.innerText = "Ingrese su nombre";
-    let nombre = document.createElement("input");
-    nombre.setAttribute("type", "text");
-    nombre.setAttribute("name", "nombre");
-    nombre.setAttribute("class", "form-control");
-
+    Nombre.setAttribute("class", "mb-3 mx-5");
 
     let Apellido = document.createElement("div");
-    Apellido.setAttribute("class", "mb-3 px-5" );
-    let apellido_label = document.createElement("label");
-    apellido_label.setAttribute("class", "form-label");
-    apellido_label.innerText = "Ingrese su apellido";
+    Apellido.setAttribute("class", "mb-3 mx-5");
+
+
+    let n_label = document.createElement("label");
+    n_label.setAttribute("for", "nombre");
+    n_label.innerText = "Nombre";
+    let nombre = document.createElement("input");
+    nombre.setAttribute("type", "text");
+    nombre.setAttribute("id", "nombre");
+    nombre.setAttribute("class", "form-control px-5");
+
+    let a_label = document.createElement("label");
+    a_label.setAttribute("for", "apellido");
+    a_label.innerText = "Apellido"
     let apellido = document.createElement("input");
     apellido.setAttribute("type", "text");
-    apellido.setAttribute("name", "apellido");
-    apellido.setAttribute("class", "form-control");
+    apellido.setAttribute("id", "apellido");
+    apellido.setAttribute("class", "form-control px-5");
 
-
-    let Edad = document.createElement("div");
-    Edad.setAttribute("class", "mb-3 px-5");
-    let edad_label = document.createElement("label");
-    edad_label.setAttribute("class", "form-label");
-    edad_label.innerText = "Ingrese su edad";
-    let edad = document.createElement("input");
-    edad.setAttribute("type", "number");
-    edad.setAttribute("name", "edad");
-
-
-    let Imagen = document.createElement("div");
-    Imagen.setAttribute("class", "mb-3 px-5");
-    let imagen_label = document.createElement("label");
-    imagen_label.setAttribute("class", "form-label");
-    imagen_label.innerText = "Ingrese una imagen";
-    let imagen = document.createElement("input");
-    imagen.setAttribute("type", "file");
-    imagen.setAttribute("name", "imagen");
-    imagen.setAttribute("class", "form-control");
-
-
-    let Email = document.createElement("div");
-    Email.setAttribute("class", "mb-3 px-5");
-    let email_label = document.createElement("label");
-    email_label.setAttribute("class", "form-label");
-    email_label.innerText = "Ingrese su email";
-    let email = document.createElement("input");
-    email.setAttribute("type", "email");
-    email.setAttribute("name", "email");
-    email.setAttribute("class", "form-control");
-
-
-    
     let boton = document.createElement("input");
     boton.setAttribute("type", "submit");
-    boton.setAttribute("class", 'btn btn-success ms-5 mb-3')
+    boton.setAttribute("class", "ms-5 mb-3 btn btn-success");
 
     let clase = document.getElementById("tipo-de-papas")
     clase.classList.add("d-none");
 
-
-
-
-    Nombre.append(nombre_label);
+    Nombre.append(n_label);
     Nombre.append(nombre);
-    Apellido.append(apellido_label);
+    Apellido.append(a_label);
     Apellido.append(apellido);
+   
 
-    Edad.append(edad_label);
-    Edad.append(edad);
-    Imagen.append(imagen_label);
-    Imagen.append(imagen);
 
-    Email.append(email);
-    Email.append(email_label);
-    
-    formulario.append(title);
     formulario.append(Nombre);
-    formulario.append(Apellido);
-    formulario.append(Edad);
-    formulario.append(Imagen);
-    formulario.append(Email);
-    
+    formulario.append(Apellido)
     formulario.append(boton);
 
 }
-
 
 
 
