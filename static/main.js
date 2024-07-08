@@ -7,7 +7,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 let users = [];
 let sandwiches = [];
 let isEditing = false;
-let userID = null;
+let userID = null; // Variable para guardar el id del usuario a editar
+let sandID = null;  // Variable para guardar el id del sandwich a editar
 
 const updtTitle = document.querySelector("#formTitle");
 const updtBtn = document.querySelector("#btnSub");

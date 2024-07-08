@@ -80,7 +80,7 @@
 
     <script>
 
-        function parse_creacion(content){
+        function parse_creacion(content) {
             event.preventDefault();
 
             const data_form = new FormData(event.target);
@@ -95,20 +95,21 @@
             console.log(JSON.stringify({
                 id: id,
                 pan: nuevo_sandwich.pan,
-                milanesa : nuevo_sandwich.milanesa,
+                milanesa: nuevo_sandwich.milanesa,
                 ensalada: nuevo_sandwich.ensalada,
                 coccion: nuevo_sandwich.coccion,
                 papas: nuevo_sandwich.papas,
                 fecha_creacion: nuevo_sandwich.fecha_creacion
             }
-                
+
             ))
         }
 
 
-        function crear_sandwich(event){
+        function crear_sandwich(event) {
 
-            fetch("http://localhost:5500/create", {method: "POST",
+            fetch("/api/sandwiches", {
+                method: "POST",
                 headers: {
                     "Content-type": "application/json"
                 },
@@ -117,13 +118,14 @@
                     milanesa: milanesa,
                     ensalada: ensalada,
                     coccion: coccion,
-                    papas: papas})
+                    papas: papas
                 })
+            })
                 .then(res => res.json())
                 .then(parse_creacion)
-                .catch( (error) => console.log(error))
-            }
-                
+                .catch((error) => console.log(error))
+        }
+
 
 
     </script>
