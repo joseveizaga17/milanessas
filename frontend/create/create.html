@@ -7,16 +7,16 @@
     <title>Milanga's End</title>
     <link rel="icon" href="https://imgur.com/dXoNMJH.png">
     <!--<link rel="stylesheet" href="estilo.css">-->
-    <link rel="stylesheet" href="/frontend/styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/frontend/create/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        form div button{
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQBzPZyR4_EOZKR8AUHzxRpCHk29RmYhmxg&s');
-        height: 170px;
-        width: 290px;
-}
+        form div button {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQBzPZyR4_EOZKR8AUHzxRpCHk29RmYhmxg&s');
+            height: 170px;
+            width: 290px;
+        }
     </style>
 </head>
 
@@ -24,11 +24,6 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="https://imgur.com/dXoNMJH.png" alt="Logo" width="40" height="40"
-                    class="d-inline-block align-text-center">
-                Milanga's End
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,26 +32,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/frontend/index.html">Home</a>
+                        <a class="nav-link" href="/">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/frontend/us/index.html">Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/frontend/how/index.html">How it works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/frontend/create/index.html">Make a
+                        <a class="nav-link active" aria-current="page" href="/frontend/create/index.html">Crea un
                             sandwich</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/frontend/invent">Make a milanga</a>
-                    </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
@@ -69,58 +51,31 @@
     </div>
 
     <!-- form -->
-    
-    
+
+
     <div class="container my-3">
-        
-        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich(event)" method="post">   
-            <h2 class="ps-3 pt-2" id="form-title">Elija como va a ser su sandwich</h2> 
+
+        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich(event)"
+            method="post">
+            <h2 class="ps-3 pt-2" id="form-title">Elija como va a ser su sandwich</h2>
             <div id="tipo-de-pan" class="d-flex justify-content-evenly my-5">
-                <button type="button" id="pan" onclick="siguiente_pan(1)" class="btn btn-outline-dark" name="pan">Pan Blanco</button>
-                <button type="button" id="pan" onclick="siguiente_pan(2)" class="btn btn-outline-dark" name="pan">Pan Integral</button>
-                <button type="button" id="pan" onclick="siguiente_pan(3)" class="btn btn-outline-dark" name="pan">Pan Arabe</button>
+                <button type="button" id="pan" onclick="siguiente_pan(1)" class="btn btn-outline-dark" name="pan">Pan
+                    Blanco</button>
+                <button type="button" id="pan" onclick="siguiente_pan(2)" class="btn btn-outline-dark" name="pan">Pan
+                    Integral</button>
+                <button type="button" id="pan" onclick="siguiente_pan(3)" class="btn btn-outline-dark" name="pan">Pan
+                    Arabe</button>
             </div>
         </form>
     </div>
 
-
-    <!-- end-form -->
-
-    
-
-    <!-- footer -->
-    <div class="footer-container">
-        <div class="social-container">
-            <ul>
-                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i>
-                        Instagram</a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=61561928529841" target="_blank"><i class="fa-brands fa-square-facebook"></i>
-                        Facebook</a></li>
-                <li><a href="https://www.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i>
-                        Whatsapp</a></li>
-            </ul>
-        </div>
-        <div class="footer-logo">
-            <a href="/frontend/index.html">
-                <img src="https://imgur.com/dXoNMJH.png" alt="logo" width="100" height="100">
-            </a>
-        </div>
-        <div class="footer-subscription">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label"></label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <button type="button" class="btn btn-info">Subscribe!</button>
-        </div>
-    </div>
-    <!-- end-footer -->
 
     <!-- scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
 
     <!--
     <script>

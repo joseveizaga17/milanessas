@@ -1,8 +1,9 @@
-#Tp Final del Equipo Milanesas
+# Tp Final del Equipo Milanesas
 
 Es una aplicación hecha con Flask, tiene dos tablas que manejan los usuarios dentro de la pagina y los sandwiches de milanesa que se pueden crear.
 
 ### Instalación
+
 ```
 git clone git@github.com:joseveizaga17/milanessas.git
 
