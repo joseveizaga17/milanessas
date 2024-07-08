@@ -5,13 +5,8 @@
 }
 
 /* header */
-.main-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: rgba(var(--bs-secondary-bg-rgb));
-    position: sticky;
+.navbar-nav{
+    margin-left: 2rem;
 }
 
 /* containers */

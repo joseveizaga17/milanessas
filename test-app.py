@@ -193,6 +193,10 @@ def get_sandwich(id):
 def home():
     return send_file('frontend/index.html')
 
+@app.get('/frontend/create/create.html')
+def create():
+    return send_file('frontend/create/create.html')
+
 if __name__ == '__main__':
     create_tables()
     app.run(debug=True)
