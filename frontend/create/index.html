@@ -73,7 +73,7 @@
     
     <div class="container my-3">
         <h2>Elija como va a ser su sandwich</h2>
-        <form id="form-sandwich" class="border border-light-subtle rounded">    
+        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich()">    
             <div id="tipo-de-pan" class="d-flex justify-content-evenly my-5">
                 <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Blanco</button>
                 <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Integral</button>
@@ -85,35 +85,7 @@
 
     <!-- end-form -->
 
-    <div class="container my-5">
-        <h3 class="pb-2">Lista de sandwiches de milanesas creadas</h3>
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Normal</h5>
-                <small>Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small>And some small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Vegano</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich de Pollo</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-          </div>
-    </div>
+    
 
     <!-- footer -->
     <div class="footer-container">
@@ -148,6 +120,28 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+
+    <script>
+
+        function response_received(received){
+            return received.json();
+
+        }
+        function parse_data(data){
+            console.log(data);
+        }
+
+        function request_error(error){
+            console.log(error);
+        }
+
+
+        fetch('http://localhost:5500/create')
+        .fetch(response_received)
+        .fetch(parse_data)
+        .catch(request_error);
+    </script>
+
 </body>
 
 </html>
