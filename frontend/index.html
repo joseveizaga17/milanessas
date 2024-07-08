@@ -71,6 +71,59 @@
     </div>
   </div>
 
+  <!-- Modal sandwiches -->
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="sandForm">
+            <select class="form-select" name="pan">
+              <option selected>Elija Su tipo de Pan</option>
+              <option value="Pan Balnco">Balnco</option>
+              <option value="Pan Integral">Integral</option>
+              <option value=" Pan de Semillas">De Semillas</option>
+            </select>
+            <select class="form-select" name="milanesa">
+              <option selected>Elija su tipo de Milanesa</option>
+              <option value="Carne">Carne</option>
+              <option value="Pollo">Pollo</option>
+              <option value="Cerdo">Cerdo</option>
+              <option value="Berengena">Berengena</option>
+            </select>
+            <select class="form-select" name="coccion">
+              <option selected>Como la quiere cocinar?</option>
+              <option value="Horno">Horno</option>
+              <option value="Frita">Frita</option>
+              <option value="Plancha">Plancha</option>
+              <option value="Parrilla">Parrilla</option>
+            </select>
+            <select class="form-select" name="ensalada">
+              <option selected>Verduras para acompañar</option>
+              <option value="Lechuga">Lechuga</option>
+              <option value="Tomate">Tomate</option>
+              <option value="Cebolla">Cebolla</option>
+            </select>
+            <select class="form-select" name="papas">
+              <option selected>Tipo de Papas</option>
+              <option value="Pure">Pure</option>
+              <option value="Fritas">Fritas</option>
+              <option value="Españolas">Españolas</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Page -->
   <main class="main-container">
     <section class="welcome">
@@ -134,6 +187,9 @@
     </section>
     <section class="sandwich-admin">
       <h2>Administrar Sandwiches</h2>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Crea tu Sandwich
+      </button>
       <table class="table table-admusr">
         <thead>
           <tr>
@@ -144,7 +200,7 @@
             <th scope="col">Papas</th>
           </tr>
         </thead>
-        <tbody id="tableSands">
+        <tbody id="tableSandwiches">
         </tbody>
       </table>
     </section>

@@ -4,11 +4,57 @@ window.addEventListener("DOMContentLoaded", async () => {
   renderUsers(data);
 });
 
+window.addEventListener("DOMContentLoaded", async () => {
+  const responseSand = await fetch("/api/sandwiches");
+  const dataSand = await responseSand.json();
+  renderSandwiches(dataSand);
+});
+
 let users = [];
-let sandwiches = [];
+let sandwichesArray = [];
 let isEditing = false;
 let userID = null; // Variable para guardar el id del usuario a editar
-let sandID = null;  // Variable para guardar el id del sandwich a editar
+let sandID = null; // Variable para guardar el id del sandwich a editar
+
+const sandForm = document.querySelector("#sandForm");
+
+sandForm.addEventListener("submit", async (e) => {
+  const pan = sandForm["pan"].value;
+  const milanesa = sandForm["milanesa"].value;
+  const coccion = sandForm["coccion"].value;
+  const ensalada = sandForm["ensalada"].value;
+  const papas = sandForm["papas"].value;
+  const response = await fetch("/api/sandwiches", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      pan,
+      milanesa,
+      coccion,
+      ensalada,
+      papas,
+    }),
+  });
+});
+
+function renderSandwiches(sandwiches) {
+  console.log(sandwiches);
+  const tableSandwiches = document.querySelector("#tableSandwiches");
+  tableSandwiches.innerHTML = "";
+  sandwiches.forEach((sanwich) => {
+    console.log(sanwich);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${sanwich.pan}</td>
+      <td>${sanwich.milanesa}</td>
+      <td>${sanwich.coccion}</td>
+      <td>${sanwich.ensalada}</td>      
+      <td>${sanwich.papas}</td>
+    `;
+  });
+}
 
 const updtTitle = document.querySelector("#formTitle");
 const updtBtn = document.querySelector("#btnSub");
