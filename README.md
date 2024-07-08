@@ -1,7 +1,7 @@
 # Tp Final del Equipo Milanesas
 
 Es una aplicación hecha con Flask, tiene dos tablas que manejan los usuarios dentro de la pagina y los sandwiches de milanesa que se pueden crear.
-Las tablas
+Puedes acceder a las tablas de forma local, o puedes verlas y editarlas en el apartado de administración.
 
 ### Requerimientos
 
@@ -23,8 +23,8 @@ python3  test-app.py
 
 ### Integrantes
 
-| Nombre             | Legajo |
-| :------------------| :----: |
-| Julián Camacho     | 111262 |
-| Jose Manuel Veizaga| 111653 |
-| Facundo Tejerina   | 111614 |
+| Nombre              | Legajo |
+| :------------------ | :----: |
+| Julián Camacho      | 111262 |
+| Jose Manuel Veizaga | 111653 |
+| Facundo Tejerina    | 111614 |
