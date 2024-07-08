@@ -5,8 +5,13 @@
 }
 
 /* header */
-.navbar-nav{
-    margin-left: 2rem;
+.main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* containers */

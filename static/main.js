@@ -44,9 +44,8 @@ function renderSandwiches(sandwiches) {
   const tableSandwiches = document.querySelector("#tableSandwiches");
   tableSandwiches.innerHTML = "";
   sandwiches.forEach((sanwich) => {
-    console.log(sanwich);
     const tr = document.createElement("tr");
-    tr.innerHTML = `
+    tr.innerText = `
       <td>${sanwich.pan}</td>
       <td>${sanwich.milanesa}</td>
       <td>${sanwich.coccion}</td>
@@ -114,7 +113,6 @@ userForm.addEventListener("submit", async (e) => {
 
 function renderUsers(users) {
   const tableUsers = document.querySelector("#tableUsers");
-  tableUsers.innerHTML = "";
   users.forEach((user) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
