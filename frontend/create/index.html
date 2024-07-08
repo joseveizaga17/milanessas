@@ -72,8 +72,9 @@
     
     
     <div class="container my-3">
-        <h2>Elija como va a ser su sandwich</h2>
-        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich(event)" method="post">    
+        
+        <form id="form-sandwich" class="border border-light-subtle rounded" onsubmit="crear_sandwich(event)" method="post">   
+            <h2 class="ps-3 pt-2" id="form-title">Elija como va a ser su sandwich</h2> 
             <div id="tipo-de-pan" class="d-flex justify-content-evenly my-5">
                 <button type="button" id="pan" onclick="siguiente_pan(1)" class="btn btn-outline-dark" name="pan">Pan Blanco</button>
                 <button type="button" id="pan" onclick="siguiente_pan(2)" class="btn btn-outline-dark" name="pan">Pan Integral</button>
@@ -121,6 +122,7 @@
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
+    <!--
     <script>
 
         function parse_creacion(content){
@@ -142,8 +144,7 @@
                 ensalada: nuevo_sandwich.ensalada,
                 coccion: nuevo_sandwich.coccion,
                 papas: nuevo_sandwich.papas,
-                fecha_creacion: nuevo_sandwich.fecha_creacion,
-                usuario_id: nuevo_sandwich.usuario_id
+                fecha_creacion: nuevo_sandwich.fecha_creacion
             }
                 
             ))
@@ -159,7 +160,7 @@
         }
 
 
-    </script>
+    </script>-->
 
 </body>
 
