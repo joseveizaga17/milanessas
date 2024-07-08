@@ -48,8 +48,8 @@ def get_all_sandwich():
                 "ensalada": sandwich.ensalada,
                 "coccion": sandwich.coccion,
                 "papas": sandwich.papas,
-                'fecha_creacion': data.fecha_creacion,
-                'usuario_id': data.usuario_id
+                'fecha_creacion': sandwich.fecha_creacion,
+                'usuario_id': sandwich.usuario_id
                 }
             sandwichs_data.append(sandwich_data)
         return sandwichs_data
@@ -63,7 +63,7 @@ def delete_sandwich(id):
     data = Milanga.query.get(identificador)
     
     if data == None:
-        return jsonify({'success': 'no existe un sandwich con ese id'})
+        return jsonify({'success': False})
     else :
         db.session.delete(data)
         db.session.commit()
@@ -117,7 +117,7 @@ def create_sandwich():
     except:
         return jsonify({'success' : False})
         
-@app.route('/user', methods=['POST'])
+@app.route('/user/create', methods=['POST'])
 def create_user():
     try:
         data = request.json
@@ -136,6 +136,65 @@ def create_user():
     except:
         return jsonify({'success': False})
     
+@app.route('/user', methods=['GET'])
+def get_all_user():
+    try:
+        data = Usuario.query.all()
+        users_data = []
+        for user in data:
+            user_data = {
+                'id': user.get('id'),
+                'nombre': user.get('nombre'),
+                'apellido': user.get('apellido'),
+                'edad': user.get('edad'),
+                'imagen': user.get('imagen'),
+                'email': user.get('email'),
+                'fecha_creacion': user.get('fecha_creacion'),
+            }
+        return 
+    except:
+        return
+    
+@app.route('/user/edit/<id>', methods=['PUT'])
+def user_edit(id):
+    data = request.json
+
+    if data == None:
+        return jsonify({'success': False})
+    else:
+        nombre = data.get('nombre')
+        apellido = data.get('apellido')
+        edad = data.get('edad')
+        imagen = data.get('imagen')
+        email = data.get('email')
+
+        content = Usuario.query.get(id)
+        content.nombre = nombre
+        content.apellido = apellido
+        content.edad = edad
+        content.imagen = imagen 
+        content.email = email
+
+        db.session.commit()
+        return jsonify({'success': True})
+    
+
+@app.route('/user/delete/<id>', methods=['DELETE'])
+def user_delete(id):
+    identificador = id
+    data = Usuario.query.get(identificador)
+    if data == None:
+        return jsonify({'success': False})
+    else :
+        db.session.delete(data)
+        db.session.commit()
+
+        return jsonify({'resultado': True})
+
+    
+
+
+
 
 if __name__ == '__main__':
     db.init_app(app)
