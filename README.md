@@ -23,8 +23,8 @@ python3  test-app.py
 
 ### Integrantes
 
-| Nombre         | Legajo |
-| :------------- | :----: |
-| Julián Camacho | 111262 |
-| Ran            | 000000 |
-| Facundo        | 000000 |
+| Nombre             | Legajo |
+| :------------------| :----: |
+| Julián Camacho     | 111262 |
+| Jose Manuel Veizaga| 111653 |
+| Facundo            | 000000 |
