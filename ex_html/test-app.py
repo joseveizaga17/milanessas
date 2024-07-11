@@ -6,7 +6,7 @@ app = Flask(__name__)
 host = 'localhost'
 database = 'postgres'
 username = 'postgres'
-password = 'uba123'
+password = '1234'
 port = 5432
 
 def get_db_connection():
