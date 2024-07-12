@@ -8,6 +8,8 @@ function data_receive(data){
       let lista = document.createElement("li");
       lista.setAttribute("class", "list-group-item list-group-item-dark");
 
+
+      //Titulo y la fecha de creacion dentro de este div
       let header = document.createElement("div");
       header.setAttribute("class","d-flex w-100 justify-content-between");
 
@@ -19,10 +21,14 @@ function data_receive(data){
       fecha.setAttribute("class", "text-body-secondary");
       fecha.append(data[index].fecha_creacion);
 
+
+      // Las demas tablas de milanesas 
       let ingredientes = document.createElement("p");
       ingredientes.setAttribute("class", "mb-1");
       ingredientes.append(`Contiene ${data[index].pan} con ${data[index].milanesa} ${data[index].coccion}, con ${data[index].ensalada} acompañado con ${data[index].papas}`);
 
+
+      // Boton eliminar y el id del usuario
       let footer = document.createElement("div");
       footer.setAttribute("class", "d-flex w-100 justify-content-between");
 
@@ -36,7 +42,8 @@ function data_receive(data){
       boton.onclick = function(){eliminar_sandwich(data[index])};
       boton.innerText = "Eliminar";
 
-
+        
+      //Aqui es donde pongo cada elemento dentro de otro elemento
       header.append(nombre);
       header.append(fecha);
 
@@ -52,6 +59,7 @@ function data_receive(data){
    
   }
 
+  //De esta forma recargo la pagina
   function delete_response(data){
     window.location.href = window.location.href;
   }
@@ -60,15 +68,13 @@ function data_receive(data){
     console.log("Error", error);
   }
 
-
+  //esta funcion es donde elimino el sandwich
   function eliminar_sandwich(sand){
 
     const confirmacion = confirm(`Estas seguro de eliminar el sandwich ${sand.id}?`);
-
     if(!confirmacion){
       return
     }
-
     fetch(`http://127.0.0.1:5500/delete/${sand.id}`, 
     { method: "DELETE" })
       .then((res) => res.json())
@@ -76,6 +82,7 @@ function data_receive(data){
       .catch(handle_error);
   }
 
+  
   fetch('http://127.0.0.1:5500/sandwichs')
     .then(response => response.json())
     .then(data_receive)
