@@ -122,6 +122,7 @@
 
         let boton = document.createElement("button");
         boton.setAttribute("class", "btn btn-danger");
+        boton.setAttribute("type", "submit");
         boton.onclick = function(){eliminar_sandwich(data[index])};
         boton.innerText = "Eliminar";
 
@@ -141,6 +142,10 @@
      
     }
 
+    function delete_response(data){
+      window.location.href = window.location.href;
+    }
+
     function handle_error(error){
       console.log("Error", error);
     }
@@ -154,12 +159,11 @@
         return
       }
 
-
-      /*
-      fetch(`http://127.0.0.1:5500/delete/${id}`, { method: "DELETE" })
+      fetch(`http://127.0.0.1:5500/delete/${sand.id}`, 
+      { method: "DELETE" })
         .then((res) => res.json())
         .then(delete_response)
-        .catch(handle_error);*/
+        .catch(handle_error);
     }
 
     fetch('http://127.0.0.1:5500/sandwichs')
