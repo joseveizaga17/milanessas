@@ -51,9 +51,42 @@
   </nav>
   <!-- end-navbar -->
 
-  <div class="container">
+  <main>
 
-  </div>
+    <h1 class="text-center p-5 bg-black text-white">Listas de sandwiches creados</h1>
+
+
+    <div class="container mb-2">
+      <div class="list-group" id="list-container">
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small>And some small print.</small>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-body-secondary">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small class="text-body-secondary">And some muted small print.</small>
+        </a>
+        <li class="list-group-item list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">List group item heading</h5>
+            <small class="text-body-secondary">3 days ago</small>
+          </div>
+          <p class="mb-1">Some placeholder content in a paragraph.</p>
+          <small class="text-body-secondary">And some muted small print.</small>
+        </li>
+      </div>
+    </div>
+  </main>
+
+  
 
   <!-- footer -->
   <div class="footer-container">
@@ -74,6 +107,21 @@
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
   <script src="invent.js"></script>
+
+  <script>
+
+
+    function data_receive(data){
+      console.log(data);
+    }
+
+
+    fetch('http://127.0.0.1:5500/sandwichs')
+      .then(response => response.json())
+      .then(data_receive)
+      .catch(error => console.log(error));
+
+  </script>
 </body>
 
 </html>
