@@ -58,23 +58,23 @@
     <div class="bg-dark mb-3">
         <div class="container">
 
-            <form id="form-sandwich" class="border border-info rounded">
+            <form id="form-sandwich" class="border border-info rounded" onsubmit="crear_milanesa(event)">
                 <h2 class="ms-4 mt-3">Eliga su pan</h2>
                 <div id="pan" class="d-flex justify-content-evenly flex-wrap m-3">
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan1" value="Pan Blanco" onclick="boton1()" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan1">Pan 1</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan1">Pan Blanco</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan2" value="Pan integral" onclick="boton1()" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan2">Pan 2</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan2">Pan Integral</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan3" value="Pan de semola" onclick="boton1()" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan3">Pan 3</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan3">Pan de Semola</label>
                     </div>
                 </div>
                 
@@ -82,17 +82,17 @@
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa1" value="Milanesa de Carne" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa1">Milanesa 1</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa1">Milanesa de carne</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa2" value="Milanesa de Pollo" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa2">Milanesa 2</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa2">Milanesa de pollo</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa3" value="Milanesa de Cerdo" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa3">Milanesa 3</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa3">Milanesa de cerdo</label>
                     </div>
                 </div>
 
@@ -100,12 +100,12 @@
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="coccion" onclick="boton3()"id="coccion1" value="Frita" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion1">Coccion 1</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion1">Frita</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="coccion"  onclick="boton3()" id="coccion2" value="A la plancha" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion2">Coccion 2</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion2">A la plancha</label>
                     </div>
                 </div>
 
@@ -113,17 +113,17 @@
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada1" value="Tomate" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada1">Ensalada 1</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada1">Tomate</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada2"value="Lechuga" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada2">Ensalada 2</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada2">Lechuga</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada3" value="Cebolla"  autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada3">Ensalada 3</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada3">Cebolla</label>
                     </div>
                 </div>
 
@@ -131,90 +131,22 @@
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas1" value="Papas Fritas" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas1">Papas 1</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas1">Papas fritas</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas2" value="Papas Cocidas" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas2">Papas 2</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas2">Papas cocidas</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
                         <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
                         <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas3" value="Pure" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas3">Papas 3</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas3">Pure</label>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-    <!--
-            <form class="card m-2 w-50 mx-auto" onsubmit="crear_milanesa(event)">
-                <h1 class="ms-3 mt-2">Ponga su sandwich</h1>
-                <div class="card-body">
-                    <label for="pan">Pan:</label>
-                    <input type="text" id="pan" name="pan" class="form-control">
-                    
-                    <label for="milanesa">Milanesa:</label>
-                    <input type="text" id="milanesa" name="milanesa" class="form-control">
-                    
-                    <label for="coccion">Coccion:</label>
-                    <input type="text" id="coccion" name="coccion" class="form-control">
-                    
-                    <label>Verduras:</label>
-
-                    <input type="radio" name="verduras" id="lechuga" value="lechugass" onclick="hola()">
-                    <label for="lechuga">lechuga</label>
-
-                    <input type="radio" name="verduras" id="tomate" value="tomatess" onclick="hola()">
-                    <label for="tomate">tomate</label>
-
-                    <input type="radio" name="verduras" id="huevo" value="huevoss" onclick="hola()">
-                    <label for="huevo">huevo</label>
-                    
-                    <label for="papas">Papas:</label>
-                    <input type="text" id="papas" name="papas" class="form-control">
-                    
-                    <button type="submit" class="btn btn-success">Enviar</button>
-
-                </div>
-                
-            </form>
-    -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--    
-    <div class="container my-3">
-        <h2>Elija como va a ser su sandwich</h2>
-        <form id="form-sandwich" class="border border-light-subtle rounded">    
-            <div id="tipo-de-pan" class="d-flex justify-content-evenly my-5">
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Blanco</button>
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Integral</button>
-                <button type="button" id="pan" onclick="siguiente_pan()" class="btn btn-outline-dark">Pan Arabe</button>
-            </div>
-        </form>
-    </div>
-    -->
 
 
     <!-- end-form -->
@@ -251,7 +183,7 @@
             const pan = formdata.get("pan");
             const milanesa = formdata.get("milanesa");
             const coccion = formdata.get("coccion");
-            const ensalada = formdata.get("verduras");
+            const ensalada = formdata.get("ensalada");
             const papas = formdata.get("papas");            
             
             fetch('http://127.0.0.1:5500/create', { 
