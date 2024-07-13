@@ -61,13 +61,21 @@
                     <input type="text" id="pan" name="pan" class="form-control">
                     
                     <label for="milanesa">Milanesa:</label>
-                    <input type="text" id="milanesa" name="milanesas" class="form-control">
+                    <input type="text" id="milanesa" name="milanesa" class="form-control">
                     
                     <label for="coccion">Coccion:</label>
                     <input type="text" id="coccion" name="coccion" class="form-control">
                     
-                    <label for="verduras">Verduras:</label>
-                    <input type="text" id="verduras" name="verduras" class="form-control">
+                    <label>Verduras:</label>
+
+                    <input type="radio" name="verduras" id="lechuga" value="lechugass">
+                    <label for="lechuga">lechuga</label>
+
+                    <input type="radio" name="verduras" id="tomate" value="tomatess">
+                    <label for="tomate">tomate</label>
+
+                    <input type="radio" name="verduras" id="huevo" value="huevoss">
+                    <label for="huevo">huevo</label>
                     
                     <label for="papas">Papas:</label>
                     <input type="text" id="papas" name="papas" class="form-control">
@@ -160,12 +168,11 @@
 
 
         function data_post(data){
-            window.location.href = "/frontend/listas/index.html"
-
+            window.location.href = "/frontend/listas/index.html";
         }
 
         function crear_milanesa(event){
-           // event.preventDefault();
+            event.preventDefault();
 
             const formdata = new FormData(event.target);
 
@@ -183,12 +190,13 @@
                     milanesa: milanesa,
                     coccion: coccion,
                     ensalada: ensalada,
-                    papas: papas
+                    papas: papas,
+                    usuario_id: 1
                 })
             })
             .then(response => response.json())
             .then(data_post)
-            .catch((error) => console.log("Error",error))
+            .catch(error => console.log("Errores",error));
         }
 
 
