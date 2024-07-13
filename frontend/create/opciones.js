@@ -32,6 +32,7 @@ function boton2(){
     let mila1 = document.getElementById("milanesa1").onclick = "";
     let mila2 = document.getElementById("milanesa2").onclick = "";
     let mila3 = document.getElementById("milanesa3").onclick = "";
+    let mila4 = document.getElementById("milanesa4").onclick = "";
 
     let boton = document.createElement("button");
     boton.setAttribute("type", "button");
