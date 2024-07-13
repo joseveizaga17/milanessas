@@ -6,18 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Milanga's End</title>
     <link rel="icon" href="https://imgur.com/dXoNMJH.png">
-    <!--<link rel="stylesheet" href="estilo.css">-->
     <link rel="stylesheet" href="/frontend/styles.css">
-    <link rel="stylesheet" href="/frontend/create/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        form div button{
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFQBzPZyR4_EOZKR8AUHzxRpCHk29RmYhmxg&s');
-        height: 170px;
-        width: 290px;
-}
-    </style>
 </head>
 
 <body data-bs-theme="dark">
@@ -49,7 +40,7 @@
                         <a class="nav-link active" aria-current="page" href="/frontend/create/index.html">Crear</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/frontend/invent">Listas</a>
+                        <a class="nav-link" href="/frontend/listas/index.html">Listas</a>
                     </li>
                 </ul>
             </div>
@@ -61,6 +52,75 @@
     <!-- form -->
     
     
+    <div class="bg-dark">
+        <div class="container">
+            <form class="card m-2 w-50 mx-auto" onsubmit="crear_milanesa(event)">
+                <h1 class="ms-3 mt-2">Ponga su sandwich</h1>
+                <div class="card-body">
+                    <label for="pan">Pan:</label>
+                    <input type="text" id="pan" name="pan" class="form-control">
+                    
+                    <label for="milanesa">Milanesa:</label>
+                    <input type="text" id="milanesa" name="milanesas" class="form-control">
+                    
+                    <label for="coccion">Coccion:</label>
+                    <input type="text" id="coccion" name="coccion" class="form-control">
+                    
+                    <label for="verduras">Verduras:</label>
+                    <input type="text" id="verduras" name="verduras" class="form-control">
+                    
+                    <label for="papas">Papas:</label>
+                    <input type="text" id="papas" name="papas" class="form-control">
+                    
+                    <button type="submit" class="btn btn-success">Enviar</button>
+
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <div id="pan" class="d-flex justify-content-evenly flex-wrap m-3">
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <input type="radio" class="btn-check" name="pan" id="milanesa1" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa1">Radio 1</label>
+                    </div>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <input type="radio" class="btn-check" name="pan" id="milanesa2" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa2">Radio 2</label>
+                    </div>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <input type="radio" class="btn-check" name="pan" id="milanesa3" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa3">Radio 3</label>
+                    </div>
+                </div>
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!--    
     <div class="container my-3">
         <h2>Elija como va a ser su sandwich</h2>
@@ -76,38 +136,6 @@
 
 
     <!-- end-form -->
-
-    <!--
-    <div class="container my-5">
-        <h3 class="pb-2">Lista de sandwiches de milanesas creadas</h3>
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Normal</h5>
-                <small>Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small>And some small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich Vegano</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Sandwich de Pollo</h5>
-                <small class="text-body-secondary">Hace 2 meses</small>
-              </div>
-              <p class="mb-1">Contiene:</p>
-              <small class="text-body-secondary">And some muted small print.</small>
-            </a>
-          </div>
-    </div>
-    -->
 
     <!-- footer -->
     <div class="footer-container">
@@ -128,6 +156,45 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <script>
+
+
+        function data_post(data){
+            window.location.href = "/frontend/listas/index.html"
+
+        }
+
+        function crear_milanesa(event){
+           // event.preventDefault();
+
+            const formdata = new FormData(event.target);
+
+            const pan = formdata.get("pan");
+            const milanesa = formdata.get("milanesa");
+            const coccion = formdata.get("coccion");
+            const ensalada = formdata.get("verduras");
+            const papas = formdata.get("papas");            
+            
+            fetch('http://127.0.0.1:5500/create', { 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    pan: pan,
+                    milanesa: milanesa,
+                    coccion: coccion,
+                    ensalada: ensalada,
+                    papas: papas
+                })
+            })
+            .then(response => response.json())
+            .then(data_post)
+            .catch((error) => console.log("Error",error))
+        }
+
+
+        
+
+    </script>
 </body>
 
 </html>
