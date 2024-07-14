@@ -177,12 +177,12 @@
     <script src="opciones.js"></script>
     <script>
         function data_post(data){
-            window.location.href = "/frontend/listas/index.html";
+            alert("El ID de su sandwich es " + data.id);
+            window.location.href = "../listas/index.html";
         }
 
         function crear_milanesa(event){
             event.preventDefault();
-
             const formdata = new FormData(event.target);
 
             const pan = formdata.get("pan");
