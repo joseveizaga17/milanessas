@@ -34,7 +34,7 @@
                         <a class="nav-link" href="/frontend/us/index.html">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/frontend/how/index.html">Como trabajamos</a>
+                        <a class="nav-link active" aria-current="page" href="/frontend/usuario/index.html">Registrarse</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/frontend/create/index.html">Crear</a>
@@ -43,14 +43,40 @@
                         <a class="nav-link" href="/frontend/listas/index.html">Listas</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
     <!-- end-navbar -->
+
+    <div class="bg-black p-5 mb-3">
+        <h1 class="text-center">Registrate</h1>
+    </div>
+
+    <div class="container w-50">
+        <form onsubmit="crear_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
+            <div class="mb-3">
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido">Apellido: </label>
+                <input type="text" name="apellido" id="apellido" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="edad">Edad: </label>
+                <input type="number" name="edad" id="edad" min="1" max="118" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen">Imagen de usuario: </label>
+                <input type="url" name="imagen" id="imagen" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="correo">Correo: </label>
+                <input type="email" name="correo" id="correo" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Crear usuario</button>
+        </form>
+    </div>
 
     <!-- footer -->
     <div class="footer-container">
@@ -70,6 +96,43 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
+    <script>
+
+
+        function data_post(data){
+            if(!data.success){
+                window.location.href = "/frontend/create/index.html";
+            } else {
+                alert("error");
+            }
+        }
+
+        function crear_usuario(event){
+            event.preventDefault();
+
+            const formdata = new FormData(event.target);
+
+            const nombre = formdata.get("nombre");
+            const apellido = formdata.get("apellido");
+            const edad = formdata.get("edad");
+            const imagen = formdata.get("imagen");
+            const email = formdata.get("correo");
+
+            fetch('http://127.0.0.1:5500/user/create', { method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nombre: nombre,
+                apellido: apellido,
+                edad: edad,
+                imagen: imagen,
+                email: email
+            })
+            })
+            .then(response => response.json())
+            .then(data_post)
+            .catch(error => console.log("Errores",error));
+        }
+    </script>
 </body>
 
 </html>
