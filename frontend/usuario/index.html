@@ -53,26 +53,26 @@
     </div>
 
     <div class="container w-50">
-        <form class="p-3 bg-dark-subtle border rounded-3">
+        <form onsubmit="crear_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
             <div class="mb-3">
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" class="form-control">
+                <input type="text" name="nombre" id="nombre" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="apellido">Apellido: </label>
-                <input type="text" id="apellido" class="form-control">
+                <input type="text" name="apellido" id="apellido" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="edad">Edad: </label>
-                <input type="number" id="edad" class="form-control">
+                <input type="number" name="edad" id="edad" min="1" max="118" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="imagen">Imagen de usuario: </label>
-                <input type="url" id="imagen" class="form-control">
+                <input type="url" name="imagen" id="imagen" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="correo">Correo: </label>
-                <input type="email" id="correo" class="form-control">
+                <input type="email" name="correo" id="correo" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-success">Crear usuario</button>
         </form>
@@ -99,22 +99,39 @@
     <script>
 
 
+        function data_post(data){
+            if(!data.success){
+                window.location.href = "/frontend/create/index.html";
+            } else {
+                alert("error");
+            }
+        }
 
+        function crear_usuario(event){
+            event.preventDefault();
 
+            const formdata = new FormData(event.target);
 
+            const nombre = formdata.get("nombre");
+            const apellido = formdata.get("apellido");
+            const edad = formdata.get("edad");
+            const imagen = formdata.get("imagen");
+            const email = formdata.get("correo");
 
-
-
-        fetch('http://127.0.0.1:5500/user/create', {method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    nombre: nombre,
-                    apellido: apellido,
-                    edad: edad,
-                    imagen: imagen,
-                    email: email
-                })
+            fetch('http://127.0.0.1:5500/user/create', { method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nombre: nombre,
+                apellido: apellido,
+                edad: edad,
+                imagen: imagen,
+                email: email
             })
+            })
+            .then(response => response.json())
+            .then(data_post)
+            .catch(error => console.log("Errores",error));
+        }
     </script>
 </body>
 
