@@ -22,6 +22,14 @@
     background-color: rgba(var(--bs-secondary-bg-rgb));
 }
 
+.title-ingredientes{
+    margin: 5px;
+
+}
+.img-ingredientes{
+    height: 190px;
+}
+
 .social-container {
     ul {
         list-style: none;
