@@ -39,10 +39,10 @@
             <a class="nav-link" aria-current="page" href="/frontend/create/index.html">Crear</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/frontend/listausuarios/index.html">Lista de usuarios</a>
+            <a class="nav-link active" href="/frontend/listausuarios/index.html">Lista de usuarios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="/frontend/listas/index.html">Lista de sandwichs</a>
+            <a class="nav-link" href="/frontend/listas/index.html">Lista de sandwichs</a>
         </li>
         </ul>
       </div>
@@ -52,14 +52,13 @@
 
   <main>
 
-    <h1 class="text-center p-5 bg-black text-white">Listas de sandwiches creados</h1>
+    <h1 class="text-center p-5 bg-black text-white">Listas de Usuarios</h1>
 
 
-    <div class="container mb-2">
+    <div class="container-fluid m5">
+        <div class="row" id="usuarios">
 
-      <ul class="list-group" id="list">
-
-      </ul>
+        </div>
     </div>
   </main>
 
@@ -83,7 +82,65 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
+  
+  <script>
+    function usuarios_recibidos(data){
+        let documento = document.getElementById("usuarios");
+
+        for (let i=0;i<data.length; i++){
+            let usuario = data[i];
+            
+            let div1 = document.createElement("div");
+            div1.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2");
+
+            let div2 = document.createElement("div");
+            div2.setAttribute("class", "card");
+
+            let img = document.createElement("img");
+            img.setAttribute("class", "card-img-top");
+            img.setAttribute("alt", "user-img");
+            img.setAttribute("src", usuario.imagen);
+
+            let div3 = document.createElement("div");
+            div3.setAttribute("class", "card-body");
+
+
+
+            //cosas de titulo, iamgen, decripcion
+            let card_title = document.createElement("h5");
+            card_title.setAttribute("class", "card-title");
+            card_title.append(usuario.nombre);
+            
+            let parrafo = document.createElement("p");
+            parrafo.setAttribute("class", "card-text");
+
+            let boton = document.createElement("a");
+            boton.setAttribute("class", "btn btn-success");
+            
+            div3.append(card_title);
+            div3.append(parrafo);
+            div3.append(boton);
+
+            div2.append(img);
+            div2.append(div3);
+
+            div1.append(div2);
+
+            documento.append(div1);
+
+
+        }
+    }
+
+    fetch("http://127.0.0.1:5500/user")
+        .then(response => response.json())
+        .then(usuarios_recibidos)
+        .catch(error => console.log("Error",error))
+
+  </script>
+  <!--
   <script src="invent.js"></script>
+  -->
 
 </body>
 
