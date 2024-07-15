@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="/frontend/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <style>
-        .title-ingredientes{
-            padding: 5px;
-
-        }
-    </style>
 </head>
 
 <body data-bs-theme="dark">
@@ -56,7 +49,7 @@
     <!-- end-navbar -->
 
     <div class="bg-black p-5 mb-3">
-        <h1 class="text-center">Crea su sandwich</h1>
+        <h1 class="text-center">Crea tu sandwich</h1>
     </div>
 
     <!-- form -->
@@ -68,95 +61,93 @@
                 <div id="pan" class="d-flex justify-content-evenly flex-wrap m-3">
                     <h2 class="title-ingredientes col-12">Pan:</h2>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://th.bing.com/th/id/OIP.14cBn8l7PZIEXQrF9RPuEQHaDt?rs=1&pid=ImgDetMain" height="190px" class="card-img-top" alt="...">
+                        <img src="https://th.bing.com/th/id/OIP.14cBn8l7PZIEXQrF9RPuEQHaDt?rs=1&pid=ImgDetMain" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan1" value="Blanco" onclick="boton1()" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan1">Blanco</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://th.bing.com/th/id/R.d972596980cc70d08ef3145de3202ad2?rik=0G9O%2biyoRHdBWA&riu=http%3a%2f%2froggendorf.cl%2fwp-content%2fuploads%2f2016%2f12%2fINTEGRAL-min.jpg&ehk=NxWLZtarQfFabtNysrGeguZZTCbJp0xA7jWMaLmvYqI%3d&risl=&pid=ImgRaw&r=0" height="190px" class="card-img-top" alt="...">
+                        <img src="https://th.bing.com/th/id/R.d972596980cc70d08ef3145de3202ad2?rik=0G9O%2biyoRHdBWA&riu=http%3a%2f%2froggendorf.cl%2fwp-content%2fuploads%2f2016%2f12%2fINTEGRAL-min.jpg&ehk=NxWLZtarQfFabtNysrGeguZZTCbJp0xA7jWMaLmvYqI%3d&risl=&pid=ImgRaw&r=0" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan2" value="Integral" onclick="boton1()" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan2">Integral</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://th.bing.com/th/id/OIP._pjC8ItZYaGjN9m2yrGH3gHaHa?rs=1&pid=ImgDetMain" height="190px" class="card-img-top" alt="...">
+                        <img src="https://th.bing.com/th/id/OIP._pjC8ItZYaGjN9m2yrGH3gHaHa?rs=1&pid=ImgDetMain" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="pan" id="pan3" value="Frances" onclick="boton1()" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="pan3">frances</label>
                     </div>
                 </div>
                 
                 <div id="carne" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
-                    <div class="col-12 title-ingredientes">
-                        <h2>Carne:</h2>
+                    <h2 class="title-ingredientes col-12">Carne:</h2>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://imag.bonviveur.com/preparar-la-carne.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa1" value="Carne" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa1">Carne</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa1" value="Milanesa de Carne" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa1">Milanesa de carne</label>
+                        <img src="https://images.recetasparavivirmejor.com/wp-content/uploads/2022/08/yusi-milanesa-de-pollo-receta-facil-2022.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa2" value="Pollo" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa2">Pollo</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa2" value="Milanesa de Pollo" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa2">Milanesa de pollo</label>
-                    </div>
-                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <img src="https://primefoodgt.com/wp-content/uploads/2020/04/milanesa-1536x1536.jpg" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa3" value="Cerdo" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa3">Milanesa de cerdo</label>
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa3">Cerdo</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa4" value="Milanesa Vegetariana" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa4">Milanesa Vegatariana</label>
+                        <img src="https://caynet.com.ar/wp-content/uploads/2020/05/milanesa-soja.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="milanesa" onclick="boton2()" id="milanesa4" value="Vegetal" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="milanesa4">Vegatal</label>
                     </div>
                 </div>
 
                 <div id="coccion" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
-                    <h2 class="col-12 title-ingredientes">Coccion:</h2>
+                    <h2 class="title-ingredientes col-12">Coccion:</h2>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <img src="https://www.laregion.es/asset/zoomcrop,1366,800,center,center/media/laregion/images/2015/08/07/2015080721500517586.jpg" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="coccion" onclick="boton3()"id="coccion1" value="Frita" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion1">Frita</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="coccion"  onclick="boton3()" id="coccion2" value="A la plancha" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion2">A la plancha</label>
+                        <img src="https://th.bing.com/th/id/R.fa7780687bd8101941018ea1e82af4b0?rik=RR%2fSoP0g%2f4I5%2fg&riu=http%3a%2f%2fwww.guiadecocinafacil.com%2fwp-content%2fuploads%2f2012%2f04%2fMilanesas-al-horno.jpg&ehk=oHUtSMj621Ln%2bHf%2bz5K7xAFZYmqeaNXCpHhfnd7e%2bjU%3d&risl=&pid=ImgRaw&r=0" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="coccion"  onclick="boton3()" id="coccion2" value="Al horno" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="coccion2">Al horno</label>
                     </div>
                 </div>
 
                 <div id="verdura" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
-                    <h2 class="col-12 title-ingredientes">Ensalada:</h2>
+                    <h2 class="title-ingredientes col-12">Ensalada:</h2>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada1" value="Tomate" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada1">Tomate</label>
+                        <img src="https://media.airedesantafe.com.ar/p/ad94ec9565ada86097d9212bfeba685d/adjuntos/268/imagenes/002/295/0002295288/esta-tradicional-receta-no-puede-faltar-tu-mesa-navidena.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada1" value="Rusa" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada1">Rusa</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <img src="https://i2.wp.com/enrilemoine.com/wp-content/uploads/2013/08/Ensalada-siete-sabores-SAVOIR-FAIRE-by-enrilemoine-3.jpg?w=1600&ssl=1" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada2"value="Lechuga" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada2">Lechuga</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada3" value="Cebolla"  autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada3">Cebolla</label>
+                        <img src="https://img-global.cpcdn.com/recipes/920fc9d86332aa81/1200x630cq70/photo.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada3" value="De arroz"  autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada3">De arroz</label>
                     </div>
                 </div>
 
                 <div id="papas" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
-                    <h2 class="col-12 title-ingredientes">Papas:</h2>
+                    <h2 class="title-ingredientes col-12">Papas:</h2>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas1" value="Papas Fritas" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas1">Papas fritas</label>
+                        <img src="https://www.cucinare.tv/wp-content/uploads/2020/02/Papas-fritas.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas1" value="Fritas" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas1">Fritas</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
-                        <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas2" value="Papas Cocidas" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas2">Papas cocidas</label>
+                        <img src="https://congresosespas.es/wp-content/uploads/2021/12/recetas-con-patatas-hervidas.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas2" value="Cocidas" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas2">Cocidas</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.istockphoto.com/id/1199303872/es/foto/milanesas.jpg?s=612x612&w=0&k=20&c=kSW5Zo-kqk5eCbbanQfevp6G7sf908YcdDsFDaVw-dw=" class="card-img-top" alt="...">
+                        <img src="https://cdn.kiwilimon.com/recetaimagen/1874/10574.jpg" class="card-img-top img-ingredientes" alt="...">
                         <input type="radio" class="btn-check" name="papas" onclick="boton5()" id="papas3" value="Pure" autocomplete="off">
                         <label class="btn btn-outline-success rounded-4 rounded-top-0" for="papas3">Pure</label>
                     </div>
