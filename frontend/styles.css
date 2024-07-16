@@ -29,6 +29,10 @@
 .img-ingredientes{
     height: 190px;
 }
+.img-user{
+    height: 190px;
+    border-radius: 5%;
+}
 
 .social-container {
     ul {
