@@ -5,7 +5,7 @@ from bd.app import db, Milanga, Usuario
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:uba123@localhost:5432/milanesas'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:manu17@localhost:5432/milanesas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 
@@ -113,7 +113,7 @@ def create_sandwich():
         db.session.add(nuevo_sandwich)
         db.session.commit()
 
-        return jsonify({'id': nuevo_sandwich.id})
+        return jsonify({'success':True, 'id': nuevo_sandwich.id})
     except:
         return jsonify({'success' : False})
         
@@ -132,7 +132,7 @@ def create_user():
 
         db.session.add(new_user)
         db.session.commit()
-        return jsonify({'id': new_user.id})
+        return jsonify({'success': True, 'id': new_user.id})
     except:
         return jsonify({'success': False})
     
@@ -156,6 +156,25 @@ def get_all_user():
     except:
         return jsonify({'success': False})
     
+# terminarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+@app.route("/user/<id>")
+def get_user(id):
+    data = Usuario.query.get(id)
+    if data == None:
+        return jsonify({'succes': False})
+    else:
+        dicc = [{
+            'id': data.id,
+            'nombre': data.nombre,
+            'apellido': data.apellido,
+            'edad': data.edad,
+            'imagen': data.imagen,
+            'email': data.email
+            'milangas': []
+        }]
+        return dicc
+###############################################################
+
 @app.route('/user/edit/<id>', methods=['PUT'])
 def user_edit(id):
     data = request.json
@@ -190,7 +209,7 @@ def user_delete(id):
         db.session.delete(data)
         db.session.commit()
 
-        return jsonify({'resultado': True})
+        return jsonify({'success': True})
 
 
 if __name__ == '__main__':
