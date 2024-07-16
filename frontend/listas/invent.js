@@ -15,7 +15,7 @@ function data_receive(data){
 
     let nombre = document.createElement("h5");
     nombre.setAttribute("class", "mb-1");
-    nombre.append(data[index].milanesa);
+    nombre.append(`Milanesa ${data[index].milanesa}`);
 
     let fecha = document.createElement("small");
     fecha.setAttribute("class", "text-body-secondary");
@@ -25,7 +25,7 @@ function data_receive(data){
     // Las demas tablas de milanesas 
     let ingredientes = document.createElement("p");
     ingredientes.setAttribute("class", "mb-1");
-    ingredientes.append(`Contiene ${data[index].pan} con ${data[index].milanesa} ${data[index].coccion}, con ${data[index].ensalada} acompañado con ${data[index].papas}`);
+    ingredientes.append(`Contiene pan ${data[index].pan} con milanesa ${data[index].milanesa} ${data[index].coccion}, con ensalada ${data[index].ensalada} acompañado con papas ${data[index].papas}`);
 
 
     // Boton eliminar y el id del usuario
