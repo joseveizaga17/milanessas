@@ -163,15 +163,27 @@ def get_user(id):
     if data == None:
         return jsonify({'succes': False})
     else:
-        dicc = [{
+        dicc = []
+        json_user = {
             'id': data.id,
             'nombre': data.nombre,
             'apellido': data.apellido,
             'edad': data.edad,
             'imagen': data.imagen,
-            'email': data.email
+            'email': data.email,
             'milangas': []
-        }]
+        }
+        for milanga in data.milangas:
+            json_milangas = {
+                'id': milanga.id,
+                'pan': milanga.pan,
+                'milanesa': milanga.milanesa,
+                'ensalada': milanga.ensalada,
+                'coccion': milanga.coccion,
+                'papas': milanga.papas
+            }
+            json_user.milangas.append(json_milangas)
+        dicc.append(json_user)
         return dicc
 ###############################################################
 
