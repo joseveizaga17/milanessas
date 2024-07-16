@@ -31,7 +31,9 @@
 }
 .img-user{
     height: 190px;
-    border-radius: 5%;
+}
+.name-user{
+    text-align: center;
 }
 
 .social-container {
