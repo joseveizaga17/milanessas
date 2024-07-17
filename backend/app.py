@@ -71,32 +71,6 @@ def delete_sandwich(id):
         return jsonify({'resultado': True})
 
 
-@app.route('/sandwich/edit/<id>', methods=['PUT'])
-def edit_sandwich(id):
-    data = request.json
-
-    if data == None:
-        return jsonify({'success': False})
-    else :
-        pan = data.get("pan")
-        milanesa = data.get("milanesa")
-        ensalada = data.get("ensalada")
-        coccion = data.get("coccion")
-        papas = data.get("papas")
-        usuario = data.get("usuario_id")
-
-        content = Milanga.query.get(id)
-        content.pan = pan
-        content.milanesa = milanesa
-        content.ensalada = ensalada
-        content.coccion = coccion
-        content.papas = papas
-        content.usuario_id = usuario
-
-        db.session.commit()
-
-        return jsonify({'success': True})
-
 @app.route('/create', methods=['POST'])
 def create_sandwich():
     try:
@@ -117,6 +91,7 @@ def create_sandwich():
     except:
         return jsonify({'success' : False})
         
+
 @app.route('/user/create', methods=['POST'])
 def create_user():
     try:
@@ -135,6 +110,7 @@ def create_user():
         return jsonify({'success': True, 'id': new_user.id})
     except:
         return jsonify({'success': False})
+   
     
 @app.route('/user', methods=['GET'])
 def get_all_user():
@@ -163,7 +139,7 @@ def get_user(id):
     if data == None:
         return jsonify({'succes': False})
     else:
-        dicc = []
+        #dicc = []
         json_user = {
             'id': data.id,
             'nombre': data.nombre,
@@ -182,9 +158,9 @@ def get_user(id):
                 'coccion': milanga.coccion,
                 'papas': milanga.papas
             }
-            json_user.milangas.append(json_milangas)
-        dicc.append(json_user)
-        return dicc
+            json_user['milangas'].append(json_milangas)
+        #dicc.append(json_user)
+        return json_user
 ###############################################################
 
 @app.route('/user/edit/<id>', methods=['PUT'])
