@@ -39,6 +39,9 @@
     text-align: right;
     text-decoration-line: line-through;
 }
+.title-user{
+    text-transform: capitalize;
+}
 .social-container {
     ul {
         list-style: none;
