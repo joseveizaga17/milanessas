@@ -71,8 +71,8 @@
                             </div>
                             <div class="col-6">
                                 <div class="row">
-                                    <h2 id="apellido" class="col-5">apellido</h2>
-                                    <h2 id="nombre" class="col-5">Loading...</h2>
+                                    <h2 id="apellido" class="col-5 title-user">apellido</h2>
+                                    <h2 id="nombre" class="col-5 title-user">Loading...</h2>
                                     <h5 id="id" class="col-2">identificacion</h5>
                                 </div>
                                 <h4 id="alignment" class="text-decoration-underline"></h4>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="card-footer">
                         <button class="btn btn-danger" onclick="remove_character()">Remove</button>
-                        <a id="btnEdit" class="btn btn-warning" href="/character/edit">Edit</a>
+                        <a id="btnEdit" class="btn btn-warning" href="/frontend/listausuarios/user/edit/index.html">Edit</a>
                     </div>
                 </div>
             </div>
@@ -132,6 +132,22 @@
         identificacion.innerText = data.id;
 
 
+    }
+    function usuario_borrado(){
+        alert("El usuario a sido borrado exitosamente");
+        window.location.href = "/frontend/listausuarios/index.html";
+
+    }
+
+    function remove_character(){
+        let respuesta = confirm(`Esta seguro de elminar el usuario ${id}?`);
+        if (!respuesta){
+            return;
+        }
+        fetch(`http://127.0.0.1:5500/user/delete/${id}`, { method: "DELETE" })
+            .then(response => response.json())
+            .then(usuario_borrado)
+            .catch(error => console.log("Error",error))
     }
 
     fetch(`http://127.0.0.1:5500/user/${id}`)
