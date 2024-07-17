@@ -91,7 +91,7 @@
             let usuario = data[i];
             
             let div1 = document.createElement("div");
-            div1.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2");
+            div1.setAttribute("class", "col-6 col-md-4 col-lg-3 col-xl-2 p-3");
 
             let div2 = document.createElement("div");
             div2.setAttribute("class", "card");
@@ -108,18 +108,19 @@
 
             //cosas de titulo, iamgen, decripcion
             let card_title = document.createElement("h5");
-            card_title.setAttribute("class", "card-title");
+            card_title.setAttribute("class", "card-title name-user");
             card_title.append(usuario.nombre);
             
-            let parrafo = document.createElement("p");
-            parrafo.setAttribute("class", "card-text");
+            //let parrafo = document.createElement("p");
+            //parrafo.setAttribute("class", "card-text");
 
             let boton = document.createElement("a");
             boton.setAttribute("class", "btn btn-danger");
+            boton.setAttribute("href", `/frontend/listausuarios/user?id=${usuario.id}`)
             boton.append("Ver")
             
             div3.append(card_title);
-            div3.append(parrafo);
+            //div3.append(parrafo);
             div3.append(boton);
 
             div2.append(img);

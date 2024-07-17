@@ -5,7 +5,7 @@ from bd.app import db, Milanga, Usuario
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:uba123@localhost:5432/milanesas'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:manu17@localhost:5432/milanesas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 
@@ -71,32 +71,6 @@ def delete_sandwich(id):
         return jsonify({'resultado': True})
 
 
-@app.route('/sandwich/edit/<id>', methods=['PUT'])
-def edit_sandwich(id):
-    data = request.json
-
-    if data == None:
-        return jsonify({'success': False})
-    else :
-        pan = data.get("pan")
-        milanesa = data.get("milanesa")
-        ensalada = data.get("ensalada")
-        coccion = data.get("coccion")
-        papas = data.get("papas")
-        usuario = data.get("usuario_id")
-
-        content = Milanga.query.get(id)
-        content.pan = pan
-        content.milanesa = milanesa
-        content.ensalada = ensalada
-        content.coccion = coccion
-        content.papas = papas
-        content.usuario_id = usuario
-
-        db.session.commit()
-
-        return jsonify({'success': True})
-
 @app.route('/create', methods=['POST'])
 def create_sandwich():
     try:
@@ -113,10 +87,11 @@ def create_sandwich():
         db.session.add(nuevo_sandwich)
         db.session.commit()
 
-        return jsonify({'id': nuevo_sandwich.id})
+        return jsonify({'success':True, 'id': nuevo_sandwich.id})
     except:
         return jsonify({'success' : False})
         
+
 @app.route('/user/create', methods=['POST'])
 def create_user():
     try:
@@ -132,9 +107,10 @@ def create_user():
 
         db.session.add(new_user)
         db.session.commit()
-        return jsonify({'id': new_user.id})
+        return jsonify({'success': True, 'id': new_user.id})
     except:
         return jsonify({'success': False})
+   
     
 @app.route('/user', methods=['GET'])
 def get_all_user():
@@ -156,6 +132,37 @@ def get_all_user():
     except:
         return jsonify({'success': False})
     
+# terminarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+@app.route("/user/<id>")
+def get_user(id):
+    data = Usuario.query.get(id)
+    if data == None:
+        return jsonify({'succes': False})
+    else:
+        #dicc = []
+        json_user = {
+            'id': data.id,
+            'nombre': data.nombre,
+            'apellido': data.apellido,
+            'edad': data.edad,
+            'imagen': data.imagen,
+            'email': data.email,
+            'milangas': []
+        }
+        for milanga in data.milangas:
+            json_milangas = {
+                'id': milanga.id,
+                'pan': milanga.pan,
+                'milanesa': milanga.milanesa,
+                'ensalada': milanga.ensalada,
+                'coccion': milanga.coccion,
+                'papas': milanga.papas
+            }
+            json_user['milangas'].append(json_milangas)
+        #dicc.append(json_user)
+        return json_user
+###############################################################
+
 @app.route('/user/edit/<id>', methods=['PUT'])
 def user_edit(id):
     data = request.json
@@ -190,7 +197,7 @@ def user_delete(id):
         db.session.delete(data)
         db.session.commit()
 
-        return jsonify({'resultado': True})
+        return jsonify({'success': True})
 
 
 if __name__ == '__main__':

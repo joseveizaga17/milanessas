@@ -31,9 +31,14 @@
 }
 .img-user{
     height: 190px;
-    border-radius: 5%;
 }
-
+.name-user{
+    text-align: center;
+}
+#id{
+    text-align: right;
+    text-decoration-line: line-through;
+}
 .social-container {
     ul {
         list-style: none;
