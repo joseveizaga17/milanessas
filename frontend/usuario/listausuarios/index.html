@@ -13,7 +13,7 @@
 
 <body data-bs-theme="dark">
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="https://imgur.com/dXoNMJH.png" alt="Logo" width="40" height="40"
@@ -27,36 +27,44 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="/frontend/index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/frontend/nosotros/index.html">Nosotros</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/frontend/registrar/index.html">Registrarse</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/frontend/crear/index.html">Crear</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link active" href="/frontend/listausuarios/index.html">Lista de usuarios</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/frontend/listasandwiches/index.html">Lista de sandwichs</a>
-          </li>
+            <a class="nav-link" id="l-inicio" href="/frontend/index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="l-nos" href="/frontend/nosotros/index.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="l-regis" href="/frontend/registrar/index.html">Registrarse</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="l-crear" aria-current="page" href="/frontend/crear/index.html">Crear</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="l-user" href="/frontend/listausuarios/index.html">Lista de usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="l-sand" href="/frontend/listasandwiches/index.html">Lista de sandwichs</a>
+        </li>
         </ul>
+        <div class="d-flex justify-content-end"  id="user">
+            
+        </div>
       </div>
     </div>
   </nav>
   <!-- end-navbar -->
 
   <main>
+
     <h1 class="text-center p-5 bg-black text-white">Listas de Usuarios</h1>
+
+
     <div class="container-fluid m5">
         <div class="row" id="usuarios">
+
         </div>
     </div>
   </main>
+
   
 
   <!-- footer -->
@@ -103,19 +111,20 @@
 
             //cosas de titulo, iamgen, decripcion
             let card_title = document.createElement("h5");
-            card_title.setAttribute("class", "card-title name-user title-user");
+            card_title.setAttribute("class", "card-title name-user");
             card_title.append(usuario.nombre);
             
             //let parrafo = document.createElement("p");
             //parrafo.setAttribute("class", "card-text");
 
+
             let boton_id = document.createElement("a");
-            boton_id.setAttribute("class", "btn btn-outline-primary ms-2");
+            boton_id.setAttribute("class", "btn btn-primary ms-2");
             boton_id.setAttribute("href", `/frontend/usuario?id=${usuario.id}`);
             boton_id.innerText = "Elegir usuario";
 
             let boton = document.createElement("a");
-            boton.setAttribute("class", "btn btn-outline-danger");
+            boton.setAttribute("class", "btn btn-danger");
             boton.setAttribute("href", `/frontend/listausuarios/user?id=${usuario.id}`)
             boton.append("Ver")
             
@@ -139,6 +148,43 @@
         .then(response => response.json())
         .then(usuarios_recibidos)
         .catch(error => console.log("Error",error))
+
+
+
+    function data_received(data){
+      const usuario = document.getElementById("user");
+
+      let imagen = document.createElement("img");
+      imagen.setAttribute("src", data.imagen);
+      imagen.setAttribute("class", "rounded-5")
+      imagen.setAttribute("witdh", 30);
+      imagen.setAttribute("height", 50);
+
+      let name = document.createElement("p");
+      name.setAttribute("class", "fw-bold text-capitalize ms-1 align-self-center")
+      name.innerText = `${data.nombre} ${data.apellido}`;
+
+      usuario.append(imagen);
+      usuario.append(name);
+    }
+
+    let id = new URLSearchParams(window.location.search).get("id");
+
+    document.getElementById("l-inicio").setAttribute("href", `/frontend/usuario?id=${id}`);
+    document.getElementById("l-nos").setAttribute("href", `/frontend/usuario/nosotros?id=${id}`);
+    document.getElementById("l-regis").setAttribute("href", `/frontend/usuario/registrar?id=${id}`);
+    document.getElementById("l-crear").setAttribute("href", `/frontend/usuario/crear?id=${id}`);
+    document.getElementById("l-user").setAttribute("href", `/frontend/usuario/listausuarios?id=${id}`);
+    document.getElementById("l-sand").setAttribute("href", `/frontend/usuario/listasandwiches?id=${id}`);
+
+    console.log(id);
+    fetch("http://127.0.0.1:5500/user/"+id)
+      .then(res => res.json())
+      .then(data_received)
+      .catch(error => console.log("errores: ", error));
+
+
+
 
   </script>
   <!--
