@@ -46,8 +46,17 @@
     
 }
 .footer-abajo{
-    position: sticky;
+    position: absolute;
     bottom: 0%;
+    width: 100%;
+    padding: 1em 0;
+}
+.para-footer{
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+    border: 3cm;
+
 }
 
 
