@@ -109,6 +109,11 @@
             //let parrafo = document.createElement("p");
             //parrafo.setAttribute("class", "card-text");
 
+            let boton_id = document.createElement("a");
+            boton_id.setAttribute("class", "btn btn-outline-primary ms-2");
+            boton_id.setAttribute("href", `/frontend/usuario?id=${usuario.id}`);
+            boton_id.innerText = "Elegir usuario";
+
             let boton = document.createElement("a");
             boton.setAttribute("class", "btn btn-outline-danger");
             boton.setAttribute("href", `/frontend/listausuarios/user?id=${usuario.id}`)
@@ -117,6 +122,7 @@
             div3.append(card_title);
             //div3.append(parrafo);
             div3.append(boton);
+            div3.append(boton_id);
 
             div2.append(img);
             div2.append(div3);
