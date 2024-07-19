@@ -13,7 +13,7 @@
 
 <body data-bs-theme="dark">
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="https://imgur.com/dXoNMJH.png" alt="Logo" width="40" height="40"
@@ -51,17 +51,12 @@
   <!-- end-navbar -->
 
   <main>
-
     <h1 class="text-center p-5 bg-black text-white">Listas de Usuarios</h1>
-
-
     <div class="container-fluid m5">
         <div class="row" id="usuarios">
-
         </div>
     </div>
   </main>
-
   
 
   <!-- footer -->
@@ -108,14 +103,14 @@
 
             //cosas de titulo, iamgen, decripcion
             let card_title = document.createElement("h5");
-            card_title.setAttribute("class", "card-title name-user");
+            card_title.setAttribute("class", "card-title name-user title-user");
             card_title.append(usuario.nombre);
             
             //let parrafo = document.createElement("p");
             //parrafo.setAttribute("class", "card-text");
 
             let boton = document.createElement("a");
-            boton.setAttribute("class", "btn btn-danger");
+            boton.setAttribute("class", "btn btn-outline-danger");
             boton.setAttribute("href", `/frontend/listausuarios/user?id=${usuario.id}`)
             boton.append("Ver")
             

@@ -22,15 +22,17 @@
     background-color: rgba(var(--bs-secondary-bg-rgb));
 }
 
+
+
 .title-ingredientes{
     margin: 5px;
-
 }
 .img-ingredientes{
     height: 190px;
 }
 .img-user{
     height: 190px;
+    box-shadow: 0px 0px 30px #000;
 }
 .name-user{
     text-align: center;
@@ -41,7 +43,16 @@
 }
 .title-user{
     text-transform: capitalize;
+    
 }
+.footer-abajo{
+    position: sticky;
+    bottom: 0%;
+}
+
+
+
+
 .social-container {
     ul {
         list-style: none;
