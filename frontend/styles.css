@@ -22,7 +22,7 @@
     background-color: rgba(var(--bs-secondary-bg-rgb));
 }
 
-
+/*///////////////////////////////////////////////////*/
 
 .title-ingredientes{
     margin: 5px;
@@ -56,11 +56,36 @@
     padding-bottom: 3em;
     min-height: 100vh;
     border: 3cm;
-
 }
 
+/*solo para el acordeon*/
+
+section{
+    width: 700px;
+    padding: 40px;
+    background: #98fb98;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+summary{
+    background: rgb(0,110,255);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+}
+p{
+    padding: 10px;
+    color: #000;
+}
+
+/*solo para el acordeon*/
 
 
+/*///////////////////////////////////////////////////*/
 
 .social-container {
     ul {

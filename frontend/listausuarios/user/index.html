@@ -90,11 +90,23 @@
             </div>
         </div>
     </div>
+    <!--acordeon
+    <div class="accordion accordion-flush m-5" id="accordionFlushExample">
+    </div>
+    -->
+    <section id="intento-acordeon">
+    </section>
+    
+
+
+    
+
+    
 
   
 
   <!-- footer -->
-  <div class="footer-container">
+  <div class="footer-container ">
     <div class="footer-logo">
       <a href="/frontend/index.html">
         <img src="https://imgur.com/dXoNMJH.png" alt="logo" width="100" height="100">
@@ -105,9 +117,13 @@
     </div>
   </div>
   <!-- end-footer -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+
+    let acordeon = document.getElementById("intento-acordeon");
 
     function data_recibida(data){
         let titulo = document.getElementById("titulo-user");
@@ -130,7 +146,76 @@
 
         let identificacion = document.getElementById("id");
         identificacion.innerText = data.id;
+        
+        for(let j=0; j<data.milangas.length;j++){
+            let detalles = document.createElement("details");
 
+            let summer = document.createElement("summary");
+            summer.innerText = data.milangas[j].id;
+
+            let contenido = document.createElement("p")
+            contenido.innerText = `Can you hear the silence? Can you see the dark?
+            Can you fix the broken? Can you feel, can you feel my heart?`;
+
+            detalles.append(summer);
+            detalles.append(contenido);
+
+            acordeon.append(detalles);
+        
+        }
+        /* problema 
+
+
+        // esto es para verificar que tipo de dato es, pendiente borrarlo
+        console.log(typeof(data.milangas[0].id));
+        
+        //cosas de acordeon ejemplo, esta pendiente borrarlo
+        //let acordeon1 = document.getElementById("sandwich-1");
+        //acordeon1.innerText = data.milangas[0].id;
+        
+
+        for(let j=0; j<data.milangas.length;j++){
+            //a partir de aca, vamos a generar el acordeon segun la cantidad de sandwichs que hay
+
+            //contenedor
+            let div_acordeon_dentro = document.createElement("div");
+            div_acordeon_container.classList.add("accordion-item");
+    
+            //parte del titulo del boton que se desplaza
+            let titulo_boton = document.createElement("h2");
+            titulo_boton.classList.add("accordeon-header")
+    
+            let boutton = document.createElement("button")
+            boutton.classList.add("accordion-button", "collapsed")
+            boutton.setAttribute("type", "button")
+            boutton.setAttribute("data-bs-toggle", "collapse")
+            boutton.setAttribute("data-bs-target", `#flush-collapseOne`)
+            boutton.setAttribute("aria-expanded", "false")
+            boutton.setAttribute("aria-controls", `flush-collapseOne`)
+            boutton.innerText = data.milangas[j].id;
+
+            titulo_boton.append(boutton);
+            div_acordeon_dentro.append(titulo_boton);
+
+            let div_dentro_div = document.createElement("div");
+            div_dentro_div.setAttribute("id", "flush-collapseOne")
+            div_dentro_div.classList.add("accordion-collapse", "collapse");
+            div_dentro_div.setAttribute("data-bs-parent", "#accordionFlushExample");
+
+            let tercer_div = document.createElement("div");
+            tercer_div.classList.add("accordion-body");
+            tercer_div.innerText = `Can you hear the silence? Can you see the dark?
+            Can you fix the broken? Can you feel, can you feel my heart?`;
+            
+            div_dentro_div.append(tercer_div);
+            div_acordeon_dentro.append(div_dentro_div);
+
+            div_acordeon_container.append(div_acordeon_dentro);
+        }
+        */
+
+
+        
 
     }
     function usuario_borrado(){
