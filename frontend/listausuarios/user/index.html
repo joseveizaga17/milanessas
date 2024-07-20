@@ -90,18 +90,16 @@
             </div>
         </div>
     </div>
-
+    <!--acordeon
     <div class="accordion accordion-flush m-5" id="accordionFlushExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button id="sandwich-1" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                Accordion Item #1
-                </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">eso brad, faltaria genera el acordeon en el script y agregarle los datos, arreglar
-            <div class="accordion-body"></div></div>
-        </div>
     </div>
+    -->
+    <section id="intento-acordeon">
+    </section>
+    
+
+
+    
 
     
 
@@ -125,6 +123,8 @@
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
+    let acordeon = document.getElementById("intento-acordeon");
+
     function data_recibida(data){
         let titulo = document.getElementById("titulo-user");
         titulo.innerText = data.nombre;
@@ -146,11 +146,76 @@
 
         let identificacion = document.getElementById("id");
         identificacion.innerText = data.id;
+        
+        for(let j=0; j<data.milangas.length;j++){
+            let detalles = document.createElement("details");
 
-        //cosas de acordeon
-        let acordeon1 = document.getElementById("sandwich-1");
-        acordeon1.innerText = data.milangas[0].id
+            let summer = document.createElement("summary");
+            summer.innerText = data.milangas[j].id;
 
+            let contenido = document.createElement("p")
+            contenido.innerText = `Can you hear the silence? Can you see the dark?
+            Can you fix the broken? Can you feel, can you feel my heart?`;
+
+            detalles.append(summer);
+            detalles.append(contenido);
+
+            acordeon.append(detalles);
+        
+        }
+        /* problema 
+
+
+        // esto es para verificar que tipo de dato es, pendiente borrarlo
+        console.log(typeof(data.milangas[0].id));
+        
+        //cosas de acordeon ejemplo, esta pendiente borrarlo
+        //let acordeon1 = document.getElementById("sandwich-1");
+        //acordeon1.innerText = data.milangas[0].id;
+        
+
+        for(let j=0; j<data.milangas.length;j++){
+            //a partir de aca, vamos a generar el acordeon segun la cantidad de sandwichs que hay
+
+            //contenedor
+            let div_acordeon_dentro = document.createElement("div");
+            div_acordeon_container.classList.add("accordion-item");
+    
+            //parte del titulo del boton que se desplaza
+            let titulo_boton = document.createElement("h2");
+            titulo_boton.classList.add("accordeon-header")
+    
+            let boutton = document.createElement("button")
+            boutton.classList.add("accordion-button", "collapsed")
+            boutton.setAttribute("type", "button")
+            boutton.setAttribute("data-bs-toggle", "collapse")
+            boutton.setAttribute("data-bs-target", `#flush-collapseOne`)
+            boutton.setAttribute("aria-expanded", "false")
+            boutton.setAttribute("aria-controls", `flush-collapseOne`)
+            boutton.innerText = data.milangas[j].id;
+
+            titulo_boton.append(boutton);
+            div_acordeon_dentro.append(titulo_boton);
+
+            let div_dentro_div = document.createElement("div");
+            div_dentro_div.setAttribute("id", "flush-collapseOne")
+            div_dentro_div.classList.add("accordion-collapse", "collapse");
+            div_dentro_div.setAttribute("data-bs-parent", "#accordionFlushExample");
+
+            let tercer_div = document.createElement("div");
+            tercer_div.classList.add("accordion-body");
+            tercer_div.innerText = `Can you hear the silence? Can you see the dark?
+            Can you fix the broken? Can you feel, can you feel my heart?`;
+            
+            div_dentro_div.append(tercer_div);
+            div_acordeon_dentro.append(div_dentro_div);
+
+            div_acordeon_container.append(div_acordeon_dentro);
+        }
+        */
+
+
+        
 
     }
     function usuario_borrado(){
