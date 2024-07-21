@@ -18,13 +18,12 @@ cd milanessas
 
 pip install -r requirements.txt
 
-python3  test-app.py
+python app.py
 ```
 
 ### Integrantes
 
 | Nombre              | Legajo |
 | :------------------ | :----: |
-| Julián Camacho      | 111262 |
 | Jose Manuel Veizaga | 111653 |
 | Facundo Tejerina    | 111614 |
