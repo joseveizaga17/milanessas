@@ -192,7 +192,7 @@
         function data_post(data){
             //verificar contenido data, que este dentro de las situaciones controladas
             alert("El ID de su sandwich es " + data.id);
-            window.location.href = "../listasandwiches/index.html";
+            window.location.href = `/frontend/listasandwiches?id=${id}`;
         }
 
         function crear_milanesa(event){
@@ -214,7 +214,7 @@
                     coccion: coccion,
                     ensalada: ensalada,
                     papas: papas,
-                    usuario_id: 1
+                    usuario_id: id
                 })
             })
             .then(response => response.json())

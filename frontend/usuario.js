@@ -34,12 +34,7 @@ function data_received(data){
     dropd.append(lista1);
     drop.append(dropd);
     usuario.append(drop);
-    usuario.append(imagen);
-
-
-    
-    
-    
+    usuario.append(imagen); 
 
   }
 
@@ -57,12 +52,3 @@ let id = new URLSearchParams(window.location.search).get("id");
     .then(res => res.json())
     .then(data_received)
     .catch(error => console.log("errores: ", error));
-    /*    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </button>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-*/
