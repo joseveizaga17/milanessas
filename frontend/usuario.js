@@ -38,7 +38,7 @@ function data_received(data){
 
   }
 
-let id = new URLSearchParams(window.location.search).get("id");
+  const id = new URLSearchParams(window.location.search).get("id");
 
   document.getElementById("l-inicio").setAttribute("href", `/frontend?id=${id}`);
   document.getElementById("l-nos").setAttribute("href", `/frontend/nosotros?id=${id}`);
