@@ -60,25 +60,25 @@
 
 /*solo para el acordeon*/
 
-section-acordeon{
+.section-acordeon{
     width: 700px;
     padding: 40px;
-    background: #98fb98;
-    margin: auto;
+    background: #0e570e;
+    margin: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     gap: 20px;
 }
-summary{
-    background: rgb(0,110,255);
-    color: white;
+.summary-acordeon{
+    background: rgb(5, 25, 51);
+    color: rgb(165, 66, 66);
     padding: 20px;
     cursor: pointer;
 }
-p-acordeon{
-    padding: 10px;
+.p-acordeon{
+    padding-top: 10px;
     color: #000;
 }
 
