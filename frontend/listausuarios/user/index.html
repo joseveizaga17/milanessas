@@ -94,7 +94,7 @@
     <div class="accordion accordion-flush m-5" id="accordionFlushExample">
     </div>
     -->
-    <section id="intento-acordeon">
+    <section class="section-acordeon" id="intento-acordeon">
     </section>
     
 
@@ -154,6 +154,7 @@
             summer.innerText = data.milangas[j].id;
 
             let contenido = document.createElement("p")
+            contenido.classList.add("p-acordeon")
             contenido.innerText = `Can you hear the silence? Can you see the dark?
             Can you fix the broken? Can you feel, can you feel my heart?`;
 
