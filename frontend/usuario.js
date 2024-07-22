@@ -15,9 +15,8 @@ function data_received(data){
     usuario.append(name);
   }
 
-  const id = new URLSearchParams(window.location.search).get("id");
+  let id = new URLSearchParams(window.location.search).get("id");
 
-  console.log(id);
   fetch("http://127.0.0.1:5500/user/"+id)
     .then(res => res.json())
     .then(data_received)
