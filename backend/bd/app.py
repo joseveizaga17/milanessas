@@ -8,7 +8,7 @@ class Milanga(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pan = db.Column(db.String(500), nullable=False)
     milanesa = db.Column(db.String(500), nullable=False)
-    ensalada = db.Column(db.String(500))
+    extras = db.Column(db.String(500))
     coccion = db.Column(db.String(500), nullable=False)
     papas = db.Column(db.String(500))
     fecha_creacion = db.Column(db.DateTime, default=datetime.datetime.now())
