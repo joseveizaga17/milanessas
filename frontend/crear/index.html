@@ -58,8 +58,7 @@
         <h1 class="text-center">Crea tu sandwich</h1>
     </div>
 
-    <!-- form -->
-    
+    <!-- form -->    
     
     <div class="bg-dark mb-3">
         <div class="container">
@@ -200,7 +199,8 @@
     <script>
 
     if(id === null){
-        alert("hola")
+        alert("Usted no ha seleccionado un usuario o no se ha registrado, vuelva a intentarlo");
+        window.location.href = "/frontend/index.html";
     }
         function data_post(data){
             //verificar contenido data, que este dentro de las situaciones controladas
