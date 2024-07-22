@@ -58,7 +58,7 @@ agregar a nav los nuevos accesos o cambiarlos
     </div>
 
     <div class="container w-50">
-        <form onsubmit="crear_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
+        <form onsubmit="editar_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
             <div class="mb-3">
                 <label for="nombre">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" class="form-control" required>
@@ -79,7 +79,7 @@ agregar a nav los nuevos accesos o cambiarlos
                 <label for="correo">Correo: </label>
                 <input type="email" name="correo" id="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
             </div>
-            <button type="submit" class="btn btn-success">Crear usuario</button>
+            <button type="submit" class="btn btn-warning">Editar usuario</button>
         </form>
     </div>
 
@@ -101,6 +101,54 @@ agregar a nav los nuevos accesos o cambiarlos
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
+    <script>
+
+        let id = new URLSearchParams(window.location.search).get("id");
+        console.log(id)
+
+        function data_received(data){
+            document.getElementById("nombre").value = data.nombre;
+            document.getElementById("apellido").value = data.apellido;
+            document.getElementById("edad").value = data.edad;
+            document.getElementById("imagen").value = data.imagen;
+            document.getElementById("correo").value = data.email;
+        }
+
+        fetch(`http://127.0.0.1:5500/user/${id}`)
+            .then((res) => res.json())
+            .then(data_received)
+            .catch((error) => console.log("Error :", error));
+
+        function data_edit(data){
+
+        }
+
+        function editar_usuario(event){
+            event.preventDefault();
+
+            const formdata = new FormData(event.target);
+
+            const nombre = formdata.get("nombre");
+            const apellido = formdata.get("apellido");
+            const edad = formdata.get("edad");
+            const imagen = formdata.get("imagen");
+            const email = formdata.get("correo");
+
+            fetch(`http://127.0.0.1:5500/user/edit/${id}`, { method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nombre: nombre,
+                apellido: apellido,
+                edad: edad,
+                imagen: imagen,
+                email: email
+            })
+            })
+            .then(response => response.json())
+            .then(data_edit)
+            .catch(error => console.log("Errores",error));
+        }
+    </script>
 </body>
 
 </html>
