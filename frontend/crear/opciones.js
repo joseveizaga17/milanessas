@@ -89,8 +89,6 @@ function boton4(){
     let extras2 = document.getElementById("extras2").onclick = "";
     let extras3 = document.getElementById("extras3").onclick = "";
     let extras4 = document.getElementById("extras4").onclick = "";
-    let extras5 = document.getElementById("extras5").onclick = "";
-    let extras6 = document.getElementById("extras6").onclick = "";
 
     let boton = document.createElement("button");
     boton.setAttribute("type", "button");
