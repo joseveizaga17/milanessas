@@ -18,7 +18,7 @@ function lista_de_cada_sandwich(milanga){
     linea2.append("Milanesa: " + milanga.milanesa);
 
     let linea3 = document.createElement("li");
-    linea3.append("Ensalda: " + milanga.ensalada);
+    linea3.append("Con: " + milanga.extras);
 
     let linea4 = document.createElement("li");
     linea4.append("Coccion: " + milanga.coccion);
