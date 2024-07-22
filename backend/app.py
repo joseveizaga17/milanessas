@@ -5,7 +5,7 @@ from bd.app import db, Milanga, Usuario
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:manu17@localhost:5432/milanesas'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:1234@localhost:5432/milanesas'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 
@@ -25,7 +25,7 @@ def get_sandwich(id):
             'id': id,
             'pan': data.pan,
             'milanesa': data.milanesa,
-            'ensalada': data.ensalada,
+            'extras': data.extras,
             'coccion': data.coccion,
             'papas': data.papas,
             'fecha_creacion': data.fecha_creacion,
@@ -45,7 +45,7 @@ def get_all_sandwich():
                 "id": sandwich.id,
                 "pan": sandwich.pan,
                 "milanesa": sandwich.milanesa,
-                "ensalada": sandwich.ensalada,
+                "extras": sandwich.extras,
                 "coccion": sandwich.coccion,
                 "papas": sandwich.papas,
                 'fecha_creacion': sandwich.fecha_creacion,
@@ -77,12 +77,12 @@ def create_sandwich():
         data = request.json
         pan = data.get('pan')
         milanesa = data.get('milanesa')
-        ensalada = data.get('ensalada')
+        extras = data.get('extras')
         coccion = data.get('coccion')
         papas = data.get('papas')
         usuario_id = data.get('usuario_id')
 
-        nuevo_sandwich = Milanga(pan=pan, milanesa=milanesa, ensalada=ensalada, coccion=coccion, papas=papas, usuario_id=usuario_id)
+        nuevo_sandwich = Milanga(pan=pan, milanesa=milanesa, extras=extras, coccion=coccion, papas=papas, usuario_id=usuario_id)
 
         db.session.add(nuevo_sandwich)
         db.session.commit()
@@ -154,7 +154,7 @@ def get_user(id):
                 'id': milanga.id,
                 'pan': milanga.pan,
                 'milanesa': milanga.milanesa,
-                'ensalada': milanga.ensalada,
+                'extras': milanga.extras,
                 'coccion': milanga.coccion,
                 'papas': milanga.papas
             }
