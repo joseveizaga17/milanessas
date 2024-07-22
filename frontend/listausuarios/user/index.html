@@ -145,6 +145,10 @@
     }
 
     function data_recibida(data){
+        let url_id = document.getElementById("btnEdit");
+        url_id.setAttribute("href", `/frontend/listausuarios/user/edit?id=${id}`)
+        
+        /////////
         let titulo = document.getElementById("titulo-user");
         titulo.innerText = data.nombre;
 
@@ -243,10 +247,7 @@
             detalles.append(contenido);
 
             acordeon.append(detalles);
-
-            let url_id = document.getElementById("btnEdit");
-            url_id.setAttribute("href", `/frontend/listausuarios/user/edit?id=${id}`)
-        
+    
         }
     }
     function usuario_borrado(){

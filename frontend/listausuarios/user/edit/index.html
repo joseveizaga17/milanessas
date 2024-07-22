@@ -113,32 +113,39 @@ agregar a nav los nuevos accesos o cambiarlos
             document.getElementById("email").value = data.email;
 
         }
-        function edit_character(event){
+        function editar_usuario(event){
             event.preventDefault()
+            let comprobar = confirm("Realmente quiere cambiar datos?");
+            if (comprobar == false) {
+                return;
+            }
 
-            const formData = new FormData(event.target)
+            const formData = new FormData(event.target);
 
-            const nombre = formData.get("nombre")
-            const apellido = formData.get("apellido")
-            const edad = formData.get("edad")
-            const imagen = formData.get("imagen")
-            const email = formData.get("email")
+            const nombre = formData.get("nombre");
+            const apellido = formData.get("apellido");
+            const edad = formData.get("edad");
+            const imagen = formData.get("imagen");
+            const email = formData.get("email");
 
             fetch(`http://127.0.0.1:5500/user/edit/${id}`, { 
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    pan: pan,
-                    milanesa: milanesa,
-                    coccion: coccion,
-                    ensalada: ensalada,
-                    papas: papas,
-                    usuario_id: id
+                    nombre: nombre,
+                    apellido: apellido,
+                    edad: edad,
+                    imagen: imagen,
+                    email: email,
                 })
             })
                 .then(response => response.json())
                 .then(data_recibida)
                 .catch(error => console.log("Error",error))
+
+
+
+            window.location.href = "../../index.html";
         }
 
 
