@@ -46,9 +46,6 @@
                         <a class="nav-link" id="l-sand" href="/frontend/listasandwiches/index.html">Lista de sandwichs</a>
                     </li>
                 </ul>
-                <div class="d-flex justify-content-end"  id="user">
-            
-                </div>
             </div>
         </div>
     </nav>
@@ -102,7 +99,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
-    <script src="/frontend/usuario.js"></script>
     <script>
 
 
@@ -114,7 +110,7 @@
                 alert("Error");
             } 
             alert("El id del user es: " + data.id);
-            window.location.href = `/frontend?id=${data.id}`
+            window.location.href = `/frontend/crear?id=${data.id}`
             //verificar contenido data, que este dentro de las situaciones controladas
             /*
             if(!data.success){
