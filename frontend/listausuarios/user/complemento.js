@@ -4,6 +4,7 @@ const id = params.get("id");
 document.getElementById("btnEdit").setAttribute("href", `/frontend/listausuarios/user/edit?id=${id}`)
 
 let acordeon = document.getElementById("intento-acordeon");
+let hay_milangas = false;
 
 //te hace una pequeña lista de cada sandwich
 function lista_de_cada_sandwich(milanga){
@@ -76,7 +77,14 @@ function data_recibida(data){
         detalles.append(contenido);
 
         acordeon.append(detalles);
+
+        hay_milangas = true;
         
+    }
+    if (!hay_milangas){
+        acordeon.classList.add("section-acordeon");
+        acordeon.innerText = "No hay sadnwichs creados"
+
     }
 }
 function usuario_borrado(){
