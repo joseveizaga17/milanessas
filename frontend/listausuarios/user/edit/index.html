@@ -51,14 +51,14 @@ agregar a nav los nuevos accesos o cambiarlos
             </div>
         </div>
     </nav>
-    <!-- end-navbar -->
+    <!---->
 
     <div class="bg-black p-5 mb-3">
         <h1 class="text-center">Editar</h1>
     </div>
 
     <div class="container w-50">
-        <form onsubmit="crear_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
+        <form onsubmit="editar_usuario(event)" class="p-3 bg-dark-subtle border rounded-3">
             <div class="mb-3">
                 <label for="nombre">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" class="form-control" required>
@@ -77,9 +77,9 @@ agregar a nav los nuevos accesos o cambiarlos
             </div>
             <div class="mb-3">
                 <label for="correo">Correo: </label>
-                <input type="email" name="correo" id="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@gmail.com" required>
             </div>
-            <button type="submit" class="btn btn-success">Crear usuario</button>
+            <button type="submit" class="btn btn-success">Aplicar cambios</button>
         </form>
     </div>
 
@@ -94,14 +94,59 @@ agregar a nav los nuevos accesos o cambiarlos
             <p>Copyright © - 2024. Todos los derechos reservados. </p>
         </div>
     </div>
-    <!-- end-footer -->
+    <!---->
 
-    <!-- scripts -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f5b111335.js" crossorigin="anonymous"></script>
     <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        
+        function data_recibida(data){
+            document.getElementById("nombre").value = data.nombre;
+            document.getElementById("apellido").value = data.apellido;
+            document.getElementById("edad").value = data.edad;
+            document.getElementById("imagen").value = data.imagen;
+            document.getElementById("email").value = data.email;
+
+        }
+        function edit_character(event){
+            event.preventDefault()
+
+            const formData = new FormData(event.target)
+
+            const nombre = formData.get("nombre")
+            const apellido = formData.get("apellido")
+            const edad = formData.get("edad")
+            const imagen = formData.get("imagen")
+            const email = formData.get("email")
+
+            fetch(`http://127.0.0.1:5500/user/edit/${id}`, { 
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    pan: pan,
+                    milanesa: milanesa,
+                    coccion: coccion,
+                    ensalada: ensalada,
+                    papas: papas,
+                    usuario_id: id
+                })
+            })
+                .then(response => response.json())
+                .then(data_recibida)
+                .catch(error => console.log("Error",error))
+        }
+
+
+
+        fetch(`http://127.0.0.1:5500/user/${id}`)
+            .then(response => response.json())
+            .then(data_recibida)
+            .catch(error => console.log("Error",error))
 
     </script>
 </body>

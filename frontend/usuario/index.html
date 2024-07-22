@@ -75,7 +75,7 @@
             </div>
             <div class="mb-3">
                 <label for="correo">Correo: </label>
-                <input type="email" name="correo" id="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="ejemplo@gmail.com" required>
             </div>
             <button type="submit" class="btn btn-success">Crear usuario</button>
         </form>
@@ -129,7 +129,7 @@
             const apellido = formdata.get("apellido");
             const edad = formdata.get("edad");
             const imagen = formdata.get("imagen");
-            const email = formdata.get("correo");
+            const email = formdata.get("email");
 
             fetch('http://127.0.0.1:5500/user/create', { method: "POST",
             headers: { "Content-Type": "application/json" },
