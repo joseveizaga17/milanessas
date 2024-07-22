@@ -87,10 +87,11 @@ function data_recibida(data){
 
     }
 }
-function usuario_borrado(){
+
+
+function usuario_borrado(data){
     alert("El usuario a sido borrado exitosamente");
     window.location.href = "/frontend/listausuarios/index.html";
-
 }
 
 function remove_character(){
@@ -102,6 +103,7 @@ function remove_character(){
         .then(response => response.json())
         .then(usuario_borrado)
         .catch(error => console.log("Error",error))
+
 }
 
 fetch(`http://127.0.0.1:5500/user/${id}`)
