@@ -78,16 +78,19 @@ function siguiente3(){
     let coccion = document.getElementById("coccion");
     coccion.setAttribute("class", "d-none");
 
-    let verdura = document.getElementById("verdura");
-    verdura.classList.remove("d-none");
+    let extras = document.getElementById("extras");
+    extras.classList.remove("d-none");
 }
 
 function boton4(){
     let formulario = document.getElementById("form-sandwich");
 
-    let verdura1 = document.getElementById("ensalada1").onclick = "";
-    let verdura2 = document.getElementById("ensalada2").onclick = "";
-    let verdura3 = document.getElementById("ensalada3").onclick = "";
+    let extras1 = document.getElementById("extras1").onclick = "";
+    let extras2 = document.getElementById("extras2").onclick = "";
+    let extras3 = document.getElementById("extras3").onclick = "";
+    let extras4 = document.getElementById("extras4").onclick = "";
+    let extras5 = document.getElementById("extras5").onclick = "";
+    let extras6 = document.getElementById("extras6").onclick = "";
 
     let boton = document.createElement("button");
     boton.setAttribute("type", "button");
@@ -103,7 +106,7 @@ function siguiente4(){
     let boton4 = document.getElementById("boton4")
     boton4.setAttribute("class", "d-none");
 
-    let verdura = document.getElementById("verdura");
+    let verdura = document.getElementById("extras");
     verdura.setAttribute("class", "d-none");
 
     let papas = document.getElementById("papas");

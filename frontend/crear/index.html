@@ -124,22 +124,37 @@
                     </div>
                 </div>
 
-                <div id="verdura" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
-                    <h2 class="title-ingredientes col-12">Ensalada:</h2>
+                <div id="extras" class="d-flex justify-content-evenly flex-wrap m-3 d-none">
+                    <h2 class="title-ingredientes col-12">Con :</h2>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://media.airedesantafe.com.ar/p/ad94ec9565ada86097d9212bfeba685d/adjuntos/268/imagenes/002/295/0002295288/esta-tradicional-receta-no-puede-faltar-tu-mesa-navidena.jpg" class="card-img-top img-ingredientes" alt="...">
-                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada1" value="rusa" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada1">Rusa</label>
+                        <img src="https://www.webconsultas.com/sites/default/files/lechuga_escarola.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras1" value="lechuga" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras1">Lechuga</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://i2.wp.com/enrilemoine.com/wp-content/uploads/2013/08/Ensalada-siete-sabores-SAVOIR-FAIRE-by-enrilemoine-3.jpg?w=1600&ssl=1" class="card-img-top img-ingredientes" alt="...">
-                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada2"value="de lechuga" autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada2">Lechuga</label>
+                        <img src="https://i.blogs.es/de64c9/tomate_rosa/450_1000.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras2"value="tomate" autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras2">Tomate</label>
                     </div>
                     <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
-                        <img src="https://img-global.cpcdn.com/recipes/920fc9d86332aa81/1200x630cq70/photo.jpg" class="card-img-top img-ingredientes" alt="...">
-                        <input type="radio" class="btn-check" name="ensalada" onclick="boton4()" id="ensalada3" value="de arroz"  autocomplete="off">
-                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="ensalada3">De arroz</label>
+                        <img src="https://img.freepik.com/vector-premium/rodajas-cebolla-hamburguesa-o-sandwich-ilustracion-comida-tiendas-mercados_599062-3453.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras3" value="cebolla"  autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras3">Cebolla</label>
+                    </div>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2DiTM7WfK-6eXIpHuOVcshAFgoN-LAG4cfQ&s" class="card-img-top img-ingredientes" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras4" value="huevo"  autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras4">Huevo</label>
+                    </div>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKthAbLJNNT96I-dT3u2oEIWCNuuJyAaWShg&s" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras5" value="jamon"  autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras5">Jamon</label>
+                    </div>
+                    <div class="card rounded-4 rounded-top-0 mb-3" style="width: 18rem;">
+                        <img src="https://cdn2.telediario.mx/uploads/media/2021/01/19/de-que-esta-hecho-el-queso-amarillo1.jpg" class="card-img-top img-ingredientes" alt="...">
+                        <input type="checkbox" class="btn-check" name="extras" onclick="boton4()" id="extras6" value="queso"  autocomplete="off">
+                        <label class="btn btn-outline-success rounded-4 rounded-top-0" for="extras6">Queso</label>
                     </div>
                 </div>
 
@@ -202,7 +217,7 @@
             const pan = formdata.get("pan");
             const milanesa = formdata.get("milanesa");
             const coccion = formdata.get("coccion");
-            const ensalada = formdata.get("ensalada");
+            const extras = formdata.get("extras");
             const papas = formdata.get("papas");            
             
             fetch('http://127.0.0.1:5500/create', { 
@@ -212,7 +227,7 @@
                     pan: pan,
                     milanesa: milanesa,
                     coccion: coccion,
-                    ensalada: ensalada,
+                    extras: extras,
                     papas: papas,
                     usuario_id: id
                 })
