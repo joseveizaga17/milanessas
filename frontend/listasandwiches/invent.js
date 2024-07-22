@@ -25,7 +25,7 @@ function data_receive(data){
     // Las demas tablas de milanesas 
     let ingredientes = document.createElement("p");
     ingredientes.setAttribute("class", "mb-1");
-    ingredientes.append(`Contiene pan ${data[index].pan} con milanesa ${data[index].milanesa} ${data[index].coccion}, con ensalada ${data[index].ensalada} acompañado con papas ${data[index].papas}`);
+    ingredientes.append(`Contiene pan ${data[index].pan} con milanesa ${data[index].milanesa} ${data[index].coccion}, con ${data[index].extras} acompañado con papas ${data[index].papas}`);
 
 
     // Boton eliminar y el id del usuario
