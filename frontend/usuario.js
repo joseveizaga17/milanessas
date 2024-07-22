@@ -16,6 +16,13 @@ function data_received(data){
   }
 
   let id = new URLSearchParams(window.location.search).get("id");
+  
+  if(id == null){
+
+  }
+
+  console.log(id)
+  document.getElementById("l-crear").setAttribute("href", `/frontend/crear?id=${id}`);
 
   fetch("http://127.0.0.1:5500/user/"+id)
     .then(res => res.json())
