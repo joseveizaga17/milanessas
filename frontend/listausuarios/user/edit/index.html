@@ -120,7 +120,8 @@ agregar a nav los nuevos accesos o cambiarlos
             .catch((error) => console.log("Error :", error));
 
         function data_edit(data){
-
+            alert("El id modificado es: " + id);
+            window.location.href = `/frontend/listausuarios/user?id=${id}`;
         }
 
         function editar_usuario(event){
