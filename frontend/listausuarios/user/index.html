@@ -15,7 +15,7 @@
   <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/frontend/index.html">
             <img src="https://imgur.com/dXoNMJH.png" alt="Logo" width="40" height="40"
             class="d-inline-block align-text-center">
             Milanga's End
@@ -48,7 +48,7 @@
         </div>
         </div>
     </nav>
-  <!-- end-navbar -->
+  <!---->
 
     <main>
         <h1 id="titulo-user" class="text-center p-5 bg-black text-white">NOMBRE DEL USUARIO</h1>
@@ -81,20 +81,19 @@
                         </div>
                     </div>
                     <div class="card-footer d-flex">
-                        <button class="btn btn-danger me-2" onclick="remove_character()">Remove</button>
-                        <a id="btnEdit" class="btn btn-warning" href="/frontend/listausuarios/user/edit/index.html">Edit</a>
+                        <button class="btn btn-danger me-2" onclick="remove_character()">Eliminar</button>
+                        <a id="btnEdit" class="btn btn-warning" href="/frontend/listausuarios/user/edit/index.html">Editar</a>
                         <a href="/frontend/listausuarios/index.html" class="btn btn-primary ms-auto">Volver</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--acordeon
-    <div class="accordion accordion-flush m-5" id="accordionFlushExample">
-    </div>
-    -->
+
+    <!--acordeon-->
     <section id="intento-acordeon">
     </section>
+    <!---->
     
     <!-- footer -->
     <div class="footer-container footer-abajo">
@@ -107,174 +106,12 @@
             <p>Copyright © - 2024. Todos los derechos reservados. </p>
         </div>
     </div>
-    <!-- end-footer -->
+    <!---->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
   
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-
-    document.getElementById("btnEdit").setAttribute("href", `/frontend/listausuarios/user/edit?id=${id}`)
-
-    let acordeon = document.getElementById("intento-acordeon");
-
-    //te hace una pequeña lista de cada sandwich
-    function lista_de_cada_sandwich(milanga){
-
-        let contenedor_lista = document.createElement("ul");
-
-        let linea1 = document.createElement("li");
-        linea1.append("Pan: " + milanga.pan);
-
-        let linea2 = document.createElement("li");
-        linea2.append("Milanesa: " + milanga.milanesa);
-
-        let linea3 = document.createElement("li");
-        linea3.append("Con: " + milanga.extras);
-
-        let linea4 = document.createElement("li");
-        linea4.append("Coccion: " + milanga.coccion);
-
-        let linea5 = document.createElement("li");
-        linea5.append("Papas: " + milanga.papas);
-
-        contenedor_lista.append(linea1);
-        contenedor_lista.append(linea2);
-        contenedor_lista.append(linea3);
-        contenedor_lista.append(linea4);
-        contenedor_lista.append(linea5);
-        return contenedor_lista;
-    }
-
-    function data_recibida(data){
-        let titulo = document.getElementById("titulo-user");
-        titulo.innerText = data.nombre;
-
-        let nombre = document.getElementById("nombre");
-        nombre.innerText = data.nombre;
-
-        let apellido = document.getElementById("apellido");
-        apellido.innerText = data.apellido;
-
-        let imagen = document.getElementById("img");
-        imagen.setAttribute("src", data.imagen);
-
-        let edad = document.getElementById("edad");
-        edad.innerText = data.edad;
-
-        let email = document.getElementById("email");
-        email.innerText = data.email;
-
-        let identificacion = document.getElementById("id");
-        identificacion.innerText = data.id;
-        
-        for(let j=0; j<data.milangas.length;j++){
-            acordeon.classList.add("section-acordeon");
-
-            let detalles = document.createElement("details");
-
-            let summer = document.createElement("summary");
-            summer.classList.add("summary-acordeon");
-            summer.innerText = " Sandwich " + data.milangas[j].id;
-            
-            let contenido = document.createElement("p");
-            contenido.classList.add("p-acordeon");
-            /*
-            antigo texto de ejemplo para cada acordeon
-            contenido.innerText = `Can you hear the silence? Can you see the dark?
-            Can you fix the broken? Can you feel, can you feel my heart?`;
-            */
-            //let lista = function(){lista_de_cada_sandwich(milanga[j])};
-
-
-
-            /////////////////////////////////////////////////
-            /*
-            //intente de otra forma pero no me sale:
-
-
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td>${data.milangas[j].pan}</td>
-                <td>${data.milangas[j].milanesa}</td>
-                <td>${data.milangas[j].coccion}</td>
-                <td>${data.milangas[j].ensalada}</td>      
-                <td>${data.milangas[j].papas}</td>
-            `;
-            contenido.append(tr);
-            */
-            ////////////////////////////////////////////////
-
-
-            /*
-            // si lo hago de esta forma si funciona y es mas rapido:
-
-
-            const ul = document.createElement("ul");
-            ul.innerHTML = `
-                <li>${data.milangas[j].pan}</li>
-                <li>${data.milangas[j].milanesa}</li>
-                <li>${data.milangas[j].coccion}</li>
-                <li>${data.milangas[j].ensalada}</li>      
-                <li>${data.milangas[j].papas}</li>
-            `;
-            contenido.append(ul);
-            */
-
-
-
-
-
-
-
-
-
-            console.log((data.milangas[j].pan))
-            let lista = function() {
-                return lista_de_cada_sandwich(data.milangas[j]);
-            };
-            contenido.appendChild(lista());
-            
-            //contenido.append(lista);
-            //contenedor_lista.append(lista);
-
-            //aca estoy concatenando el contenedor de la lista a la etiqueta P parrafo
-            //contenido.append(contenedor_lista);
-
-            detalles.append(summer);
-            detalles.append(contenido);
-
-            acordeon.append(detalles);
-        
-        }
-    }
-    function usuario_borrado(){
-        alert("El usuario a sido borrado exitosamente");
-        window.location.href = "/frontend/listausuarios/index.html";
-
-    }
-
-    function remove_character(){
-        let respuesta = confirm(`Esta seguro de elminar el usuario ${id}?`);
-        if (!respuesta){
-            return;
-        }
-        fetch(`http://127.0.0.1:5500/user/delete/${id}`, { method: "DELETE" })
-            .then(response => response.json())
-            .then(usuario_borrado)
-            .catch(error => console.log("Error",error))
-    }
-
-    fetch(`http://127.0.0.1:5500/user/${id}`)
-        .then(response => response.json())
-        .then(data_recibida)
-        .catch(error => console.log("Error",error))
-
-
-
-  </script>
+  <script src="complemento.js"></script>
 
 
 </body>

@@ -6,7 +6,7 @@ Puedes acceder a las tablas de forma local, o puedes verlas y editarlas en el ap
 ### Requerimientos
 
 - Python3
-- PostgresSQL
+- PostgreSQL
 - Flask
 
 ### Instalación
