@@ -1,3 +1,4 @@
+
 function boton1(){
     let formulario = document.getElementById("form-sandwich");
 
@@ -24,6 +25,13 @@ function siguiente1(){
 
     let carne = document.getElementById("carne");
     carne.classList.remove("d-none");
+
+    let progress = document.getElementById("progress");
+    progress.setAttribute("aria-valuenow", 25);
+
+    let barra = document.getElementById("barra");
+    barra.setAttribute("style", "width: 25%")
+    barra.innerText = "2 / 5";
 }
 
 function boton2(){
@@ -53,6 +61,13 @@ function siguiente2(){
 
     let coccion = document.getElementById("coccion");
     coccion.classList.remove("d-none");
+
+    let progress = document.getElementById("progress");
+    progress.setAttribute("aria-valuenow", 50);
+
+    let barra = document.getElementById("barra");
+    barra.setAttribute("style", "width: 50%")
+    barra.innerText = "3 / 5";
 }
 
 function boton3(){
@@ -80,6 +95,13 @@ function siguiente3(){
 
     let verdura = document.getElementById("extras");
     verdura.classList.remove("d-none");
+
+    let progress = document.getElementById("progress");
+    progress.setAttribute("aria-valuenow", 75);
+
+    let barra = document.getElementById("barra");
+    barra.setAttribute("style", "width: 75%")
+    barra.innerText = "4 / 5";
 }
 
 function boton4(){
@@ -108,6 +130,13 @@ function siguiente4(){
 
     let papas = document.getElementById("papas");
     papas.classList.remove("d-none");
+
+    let progress = document.getElementById("progress");
+    progress.setAttribute("aria-valuenow", 100);
+
+    let barra = document.getElementById("barra");
+    barra.setAttribute("style", "width: 100%")
+    barra.innerText = "5 / 5";
 }
 
 function boton5(){
